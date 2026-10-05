@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Inequalities & Optimization · MYP Year 5 · Unit 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea']},startup:{typeset:false}};</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script src="../components/components.js" defer></script>
+</head>
+<body>
+
+<unit-header unit="Unit 2" part="Part 3" title="Linear Inequalities & Optimization"
+  soi="Inequalities shade regions rather than lines. Linear programming studies systems of constraints to locate and interpret an optimal solution.">
+  <nav-item>1 · Representing Linear Inequalities</nav-item>
+  <nav-item>2 · Systems of Inequalities</nav-item>
+  <nav-item>3 · Feasible Regions</nav-item>
+  <nav-item>4 · Linear Programming</nav-item>
+  <nav-item>5 · Interpreting Optimal Solutions</nav-item>
+  <nav-item>6 · Optimisation Procedures</nav-item>
+</unit-header>
+
+<main class="page">
+
+  <div id="s1">
+    <p class="section-marker">Section 1</p>
+    <h2 class="section-title">Representing Linear Inequalities</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>The endpoint symbol tells you whether the boundary is included:</p>
+          <table class="cmp-table">
+            <tr><th>Symbol</th><th>Meaning</th><th>Endpoint</th></tr>
+            <tr><td>&lt;</td><td>Less than</td><td>Open circle</td></tr>
+            <tr><td>&gt;</td><td>Greater than</td><td>Open circle</td></tr>
+            <tr><td>$\le$</td><td>Less than or equal</td><td>Closed circle</td></tr>
+            <tr><td>$\ge$</td><td>Greater than or equal</td><td>Closed circle</td></tr>
+          </table>
+        </div>
+
+        <math-box type="definition" title="Compound inequalities">
+          <span slot="body">
+            <p><strong>AND:</strong> $2 < x \le 5$ (both must hold).</p>
+            <p><strong>OR:</strong> $x < -1$ or $x \ge 3$ (either may hold).</p>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Double inequality" number="1">
+          <span slot="body">
+            <p>Solve $-3 \le 2x + 1 < 7$:</p>
+            <ol class="steps">
+              <li>$-4 \le 2x < 6$.</li>
+              <li>$-2 \le x < 3$.</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Graphing on the coordinate plane</strong></p>
+          <ol class="steps">
+            <li>Replace the inequality with $=$.</li>
+            <li>Solid line for $\le, \ge$; dashed line for $<, >$.</li>
+            <li>Shade the correct region.</li>
+            <li>Test a point such as $(0, 0)$.</li>
+          </ol>
+        </div>
+
+        <math-box type="example" title="Shading $y > 2x + 1$" number="2">
+          <span slot="body">
+            <p>Draw a <strong>dashed</strong> line $y = 2x + 1$. Test $(0, 0)$: $0 > 1$ is false, so shade the side <em>away</em> from $(0, 0)$ — above the line.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Graph of Example 2 — dashed boundary y = 2x + 1: the test point (0, 0) fails, so the region above the line is shaded.</p>
+          <div id="b1" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Write the inequality represented by a closed circle at $5$ shading to the left.</li>
+            <li>Sketch $y \le -\frac{1}{2}x + 3$ and test $(0, 0)$.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Solid vs dashed">
+          <p>Solid boundary = boundary points are solutions. Dashed = boundary not included. Do not mix these up.</p>
+        </side-note>
+        <side-note label="Test point">
+          <p>$(0, 0)$ is the easiest test unless it lies on the boundary — then pick another, like $(1, 1)$ or $(0, 1)$.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s2">
+    <p class="section-marker">Section 2</p>
+    <h2 class="section-title">Graphing Systems of Linear Inequalities</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>A system of inequalities is solved by finding the region that satisfies <em>all</em> of them at once.</p>
+          <ol class="steps">
+            <li>Graph each inequality one at a time.</li>
+            <li>Find the overlap of all shaded regions.</li>
+            <li>The overlap is the <strong>feasible region</strong>.</li>
+          </ol>
+        </div>
+
+        <math-box type="example" title="A system of four inequalities" number="3">
+          <span slot="body">
+            <p>Graph $y \ge 0$, $x \ge 0$, $x + y \le 6$, $y \le x + 2$.</p>
+            <p>The feasible region is the polygon bounded by all four lines. Every point inside it satisfies every inequality.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Example 3 — y ≥ 0, x ≥ 0, x + y ≤ 6, y ≤ x + 2: the green overlap is the feasible region.</p>
+          <div id="b2" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Sketch and shade $x \ge 0$, $y \ge 0$, $2x + y \le 8$.</li>
+            <li>Add $y \ge 2$ to your sketch. Which points remain feasible?</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Non-negativity matters">
+          <p>Constraints like $x \ge 0$ and $y \ge 0$ are easy to forget, but they limit the solution to the first quadrant — usually required in real contexts.</p>
+        </side-note>
+        <side-note label="Overlap only">
+          <p>The solution is the overlap, not the union. Points satisfying only some constraints are not feasible.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s3">
+    <p class="section-marker">Section 3</p>
+    <h2 class="section-title">Identifying Feasible Regions</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p><strong>Properties of a feasible region:</strong> it may be bounded or unbounded, and its <strong>vertices</strong> occur where boundary lines intersect.</p>
+          <p><strong>Finding vertices:</strong></p>
+          <ol class="steps">
+            <li>Identify pairs of boundary lines.</li>
+            <li>Solve them simultaneously.</li>
+            <li>Check each intersection lies in the feasible region.</li>
+            <li>List the valid vertices.</li>
+          </ol>
+        </div>
+
+        <math-box type="example" title="Vertices of a region" number="4">
+          <span slot="body">
+            <p>For $y \ge 0$, $x \ge 0$, $x + y \le 6$, $y \le x + 2$, the vertices are $(0, 0)$, $(0, 2)$, $(2, 4)$, $(6, 0)$.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Example 4 — the same system with all four corner vertices marked.</p>
+          <div id="b3" class="jxgbox"></div>
+        </div>
+
+        <math-box type="example" title="No feasible region" number="5">
+          <span slot="body">
+            <p>$x + y \le 2$ and $x + y \ge 5$ cannot both hold: no point belongs to both shaded regions, so no feasible region exists.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Example 5 — x + y ≤ 2 (blue) and x + y ≥ 5 (orange) never overlap: no feasible region.</p>
+          <div id="b4" class="jxgbox"></div>
+        </div>
+
+        <math-box type="example" title="Unbounded feasible region" number="6">
+          <span slot="body">
+            <p>$x \ge 0$, $y \ge 0$, $x + y \ge 4$ gives a feasible but <strong>unbounded</strong> region. A maximum may not exist unless extra constraints are added.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Example 6 — x, y ≥ 0 with x + y ≥ 4: feasible but unbounded, so a maximum may not exist.</p>
+          <div id="b5" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Let $x \ge 1$, $y \ge 0$, $x + y \le 8$. Find all vertices and check one by substitution.</li>
+            <li>Explain why $y \le 2$ and $y \ge 5$ together give no feasible region.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Vertex check">
+          <p>Even if two lines intersect, discard that vertex if it fails one of the other inequalities.</p>
+        </side-note>
+        <side-note label="Unbounded danger">
+          <p>With an unbounded region, carefully ask whether the optimum exists before trusting an answer.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s4">
+    <p class="section-marker">Section 4</p>
+    <h2 class="section-title">Solving Linear Programming Problems</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p><strong>Components of an LP problem:</strong></p>
+          <table class="cmp-table">
+            <tr><th>Component</th><th>Description</th></tr>
+            <tr><td>Objective function</td><td>What to maximise or minimise</td></tr>
+            <tr><td>Constraints</td><td>Inequalities</td></tr>
+            <tr><td>Feasible region</td><td>All points satisfying the constraints</td></tr>
+            <tr><td>Optimal solution</td><td>Point giving the max/min value</td></tr>
+          </table>
+        </div>
+
+        <math-box type="theorem" title="Fundamental theorem of linear programming">
+          <span slot="body">
+            <p>If an optimal value exists, it occurs at a <strong>vertex</strong> of the feasible region. Evaluate the objective only at the vertices.</p>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Graphical method</strong></p>
+          <ol class="steps">
+            <li>Define variables.</li>
+            <li>Write the objective function.</li>
+            <li>Write all constraints.</li>
+            <li>Graph the constraints and identify the feasible region.</li>
+            <li>Find all vertices.</li>
+            <li>Evaluate the objective at each vertex.</li>
+            <li>Select the optimal value.</li>
+            <li>Interpret.</li>
+          </ol>
+        </div>
+
+        <math-box type="example" title="Factory optimisation" number="7">
+          <span slot="body">
+            <p>Two products A and B. A needs 2 h machining and 1 h finishing; B needs 1 h machining and 3 h finishing. Available: 16 h machining, 24 h finishing. Profit: \$30 per A, \$40 per B.</p>
+            <p>Let $x$ = number of A, $y$ = number of B.</p>
+            <p>Objective: $P = 30x + 40y$.</p>
+            <p>Constraints: $2x + y \le 16$, $x + 3y \le 24$, $x \ge 0$, $y \ge 0$.</p>
+            <p>Vertices: $(0, 0)$, $(8, 0)$, $(4.8, 6.4)$, $(0, 8)$.</p>
+            <table class="data-table">
+              <tr><th>Vertex</th><th>$P$</th></tr>
+              <tr><td>$(0, 0)$</td><td>0</td></tr>
+              <tr><td>$(8, 0)$</td><td>240</td></tr>
+              <tr><td>$(4.8, 6.4)$</td><td>400</td></tr>
+              <tr><td>$(0, 8)$</td><td>320</td></tr>
+            </table>
+            <p>Maximum profit $= \$400$ at $x = 4.8$, $y = 6.4$.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Example 7 — factory optimisation: the dashed objective line 30x + 40y = 400 sits on the optimum (4.8, 6.4).</p>
+          <div id="b6" class="jxgbox"></div>
+        </div>
+
+        <math-box type="example" title="Algebraic solution · Extended" number="8">
+          <span slot="body">
+            <p>Solve the intersecting boundary lines exactly:</p>
+            <ol class="steps">
+              <li>From $2x + y = 16$: $y = 16 - 2x$.</li>
+              <li>Substitute into $x + 3y = 24$: $x + 3(16 - 2x) = 24$.</li>
+              <li>$-5x = -24 \Rightarrow x = 4.8$.</li>
+              <li>$y = 6.4$.</li>
+            </ol>
+            <p>For larger systems, use matrices or the simplex method.</p>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Integer linear programming · Extended" number="9">
+          <span slot="body">
+            <p>If whole units are required, test integer points near the continuous optimum:</p>
+            <table class="data-table">
+              <tr><th>Point</th><th>Check constraints</th><th>Profit</th></tr>
+              <tr><td>$(5, 6)$</td><td>10 + 6 = 16, 5 + 18 = 23</td><td>390</td></tr>
+              <tr><td>$(4, 6)$</td><td>8 + 6 = 14, 4 + 18 = 22</td><td>360</td></tr>
+              <tr><td>$(3, 7)$</td><td>6 + 7 = 13, 3 + 21 = 24</td><td>370</td></tr>
+              <tr><td>$(0, 8)$</td><td>0 + 8 = 8, 0 + 24 = 24</td><td>320</td></tr>
+            </table>
+            <p>Best integer solution: $(5, 6)$, profit \$390.</p>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>A baker has 20 kg flour and 15 kg sugar. A cake needs 2 kg flour and 1 kg sugar; a loaf needs 1 kg flour and 1.5 kg sugar. Cakes sell for \$8, loaves for \$6. Set up the LP and find the best integer mix. <ib-term>define</ib-term> your variables clearly.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="List every vertex">
+          <p>Sketching well but forgetting one vertex changes the answer. Solve every boundary-line intersection before evaluating.</p>
+        </side-note>
+        <side-note label="Integers only">
+          <p>In most real problems $x$ and $y$ count whole products. Rounding the continuous optimum up or down can violate constraints — test neighbouring integer points.</p>
+        </side-note>
+      </div>
+    </div>
+
+    <div id="loe">
+      <p class="section-marker">Explorer</p>
+      <h3 class="section-title">Linear Programming Grapher</h3>
+      <p style="font-size:0.94rem;color:var(--mid);margin:0 0 1.1rem;max-width:68ch;">Drag the coloured boundary lines, sweep the objective, and read the optimum. It opens on the factory problem from Section 4.</p>
+      <style>
+        #loe{--bg:#f7f4ee;--panel:#ffffff;--ink:#22201d;--muted:#8a8177;--line:#e7e0d4;--line-soft:#f2ece2;--accent:#b45309;--accent-soft:#fdf3e7;--region:rgba(16,185,129,0.16);color:var(--ink);background:var(--bg);font-family:'DM Sans',system-ui,-apple-system,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased;border-radius:14px;padding:16px;margin:14px 0}
+#loe *{box-sizing:border-box}
+#loe .layout{display:grid;grid-template-columns:minmax(0,1fr) 386px;gap:18px;padding:0;max-width:1460px;margin:0 auto;align-items:start}
+@media (max-width:1040px){#loe .layout{grid-template-columns:1fr;padding:0}}
+#loe .left{display:flex;flex-direction:column;gap:14px;min-width:0}
+#loe .right{display:flex;flex-direction:column;gap:14px;min-width:0}
+#loe .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:0 1px 2px rgba(60,50,35,.03)}
+#loe .card h2{font-family:'Lora',serif;font-size:14px;font-weight:600;margin:0 0 11px;letter-spacing:.01em;color:#3d3830}
+#loe .canvas-wrap{position:relative;width:100%;aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:#fffdf9;border:1px solid var(--line)}
+#loe canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#loe canvas.dragging{cursor:grabbing}
+#loe .hint{margin-top:9px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+#loe .hint::before{content:"↔";font-size:14px;color:var(--accent)}
+#loe .sweep-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#loe .sweep-row label{font-size:13px;color:#4b453c;font-weight:500}
+#loe input[type=range]{-webkit-appearance:none;appearance:none;flex:1;min-width:150px;height:5px;border-radius:3px;background:linear-gradient(90deg,#e7e0d4,#d9c9b0);outline:none}
+#loe input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 1px 4px rgba(120,70,10,.35);cursor:pointer}
+#loe input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid #fff;cursor:pointer}
+#loe input[type=range]:disabled{opacity:.4}
+#loe .mono{font-family:'DM Mono',monospace;font-size:12.5px}
+#loe .btn{font-family:'DM Sans',sans-serif;font-size:12.5px;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:#fffdf9;color:#4b453c;cursor:pointer;transition:background .12s,border-color .12s}
+#loe .btn:hover{background:#f5efe5;border-color:#d9cebb}
+#loe .btn.ghost{padding:5px 10px;font-size:12px}
+#loe .crow{display:flex;align-items:center;gap:5px;padding:7px 8px;border-radius:9px;border:1px solid var(--line-soft);border-left:4px solid var(--c,#888);background:#faf7f2;margin-bottom:6px;transition:background .12s}
+#loe .crow:hover{background:#f4eee3}
+#loe .crow .var{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+#loe .num{width:50px;padding:4px 3px;font-family:'DM Mono',monospace;font-size:12px;text-align:center;border:1px solid var(--line);border-radius:6px;background:#fffdf9;color:inherit;outline:none}
+#loe .num:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(180,83,9,.12)}
+#loe .num::-webkit-outer-spin-button,#loe .num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+#loe .num{-moz-appearance:textfield;appearance:textfield}
+#loe .crow select{font-family:'DM Mono',monospace;font-size:13px;padding:3px 2px;border:1px solid var(--line);border-radius:6px;background:#fffdf9;color:inherit;outline:none;cursor:pointer}
+#loe .crow .del{margin-left:auto;width:22px;height:22px;border-radius:6px;border:none;background:transparent;color:#b9ae9c;font-size:15px;line-height:1;cursor:pointer;flex:0 0 auto}
+#loe .crow .del:hover{background:#f3e2e2;color:#b91c1c}
+#loe .obj-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:9px}
+#loe .obj-row:last-child{margin-bottom:0}
+#loe .obj-row label{font-size:13px;display:flex;align-items:center;gap:5px;cursor:pointer;color:#4b453c}
+#loe input[type=radio],#loe input[type=checkbox]{accent-color:var(--accent);cursor:pointer}
+#loe .chk{font-size:13px;display:flex;align-items:center;gap:6px;cursor:pointer;color:#4b453c;margin-top:10px}
+#loe .status{font-size:12.8px;padding:9px 11px;border-radius:9px;background:#f1f7f3;color:#166534;margin-bottom:10px;line-height:1.45}
+#loe .status.warn{background:var(--accent-soft);color:#92400e}
+#loe .status.bad{background:#fdeceb;color:#991b1b}
+#loe table.vt{width:100%;border-collapse:collapse;font-size:12.5px}
+#loe table.vt th{text-align:left;color:var(--muted);font-weight:500;padding:5px 7px;border-bottom:1px solid var(--line);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+#loe table.vt td{padding:5px 7px;font-family:'DM Mono',monospace;border-bottom:1px solid var(--line-soft)}
+#loe table.vt tr.opt td{background:var(--accent-soft);color:#92400e;font-weight:500}
+#loe .conclusion{margin-top:11px;padding:10px 11px;border-radius:9px;background:#fbf6ec;border-left:3px solid var(--accent);font-size:12.8px;line-height:1.5;color:#5a4a33}
+#loe .conclusion strong{color:#8a4a08}
+      </style>
+      <div class="layout">
+        <div class="left">
+          <div class="card">
+            <div class="canvas-wrap"><canvas id="graph"></canvas></div>
+            <div class="hint">Drag any coloured boundary line to change its constraint.</div>
+          </div>
+
+          <div class="card">
+            <div class="sweep-row">
+              <label for="sweepRange">Sweep objective line</label>
+              <input type="range" id="sweepRange" min="0" max="1" step="0.01" value="0">
+              <span class="mono" id="sweepVal">—</span>
+              <button class="btn ghost" id="sweepReset">Snap to optimum</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="right">
+
+          <div class="card">
+            <h2>Constraints</h2>
+            <div id="constraintList"></div>
+            <button class="btn" id="addConstraint" style="margin-top:4px">+ Add constraint</button>
+          </div>
+
+          <div class="card">
+            <h2>Objective function</h2>
+            <div class="obj-row">
+              <span class="mono">P =</span>
+              <input class="num" type="number" id="objA" step="1" value="30">
+              <span class="mono">x +</span>
+              <input class="num" type="number" id="objB" step="1" value="40">
+              <span class="mono">y</span>
+            </div>
+            <div class="obj-row">
+              <label><input type="radio" name="sense" value="max" checked> Maximise</label>
+              <label><input type="radio" name="sense" value="min"> Minimise</label>
+            </div>
+            <label class="chk"><input type="checkbox" id="intMode"> Integer solutions only</label>
+          </div>
+
+          <div class="card">
+            <h2>Feasible region &amp; optimum</h2>
+            <div id="statusLine" class="status">—</div>
+            <div id="vtableWrap"></div>
+            <div id="conclusion"></div>
+          </div>
+
+        </aside>
+      </div>
+      <script>
+        (function(){
+'use strict';
+
+/* =========================================================
+   CONSTANTS & STATE
+   ========================================================= */
+const PALETTE = ['#2563eb','#059669','#d97706','#dc2626','#7c3aed','#0891b2'];
+const BIG = 1e5;
+let uid = 1;
+
+const state = {
+  view: {xmin:-1, xmax:11, ymin:-1, ymax:11},
+  constraints: [],
+  obj: {a:30, b:40, sense:'max'},
+  sweep: null,        // null = sit on the optimum
+  integer: false,
+  hoverId: null,
+  dragId: null
+};
+
+/* =========================================================
+   GEOMETRY HELPERS
+   ========================================================= */
+function norm(k){
+  return k.op === '<='
+    ? {A:k.a,  B:k.b,  C:k.c}
+    : {A:-k.a, B:-k.b, C:-k.c};
+}
+
+function activeConstraints(){
+  return state.constraints.filter(k => k.on);
+}
+
+function clipHalfPlane(poly, A, B, C){
+  if (!poly.length) return poly;
+  const EPS = 1e-9;
+  const inside = p => A*p[0] + B*p[1] <= C + EPS;
+  const out = [];
+  for (let i = 0; i < poly.length; i++){
+    const P = poly[i], Q = poly[(i+1) % poly.length];
+    const ip = inside(P), iq = inside(Q);
+    if (ip) out.push(P);
+    if (ip !== iq){
+      const dp = A*P[0] + B*P[1] - C;
+      const dq = A*Q[0] + B*Q[1] - C;
+      const t = dp / (dp - dq);
+      out.push([P[0] + t*(Q[0]-P[0]), P[1] + t*(Q[1]-P[1])]);
+    }
+  }
+  return out;
+}
+
+function polyIntersect(box, cs){
+  let poly = [
+    [box.xmin, box.ymin],
+    [box.xmax, box.ymin],
+    [box.xmax, box.ymax],
+    [box.xmin, box.ymax]
+  ];
+  for (const k of cs){
+    const n = norm(k);
+    poly = clipHalfPlane(poly, n.A, n.B, n.C);
+    if (!poly.length) return [];
+  }
+  return poly;
+}
+
+function intersectLines(k1, k2){
+  const n1 = norm(k1), n2 = norm(k2);
+  const det = n1.A*n2.B - n2.A*n1.B;
+  if (Math.abs(det) < 1e-12) return null;
+  const x = (n1.C*n2.B - n2.C*n1.B) / det;
+  const y = (n1.A*n2.C - n2.A*n1.C) / det;
+  if (!isFinite(x) || !isFinite(y)) return null;
+  return [x, y];
+}
+
+function inAll(p, cs){
+  for (const k of cs){
+    const n = norm(k);
+    const v = n.A*p[0] + n.B*p[1];
+    if (v - n.C > 1e-6 * (1 + Math.abs(n.C))) return false;
+  }
+  return true;
+}
+
+function trueVertices(){
+  const cs = activeConstraints();
+  const pts = [];
+  for (let i = 0; i < cs.length; i++){
+    for (let j = i+1; j < cs.length; j++){
+      const p = intersectLines(cs[i], cs[j]);
+      if (!p) continue;
+      if (!inAll(p, cs)) continue;
+      let dup = false;
+      for (const q of pts){
+        if (Math.hypot(q[0]-p[0], q[1]-p[1]) < 1e-6){ dup = true; break; }
+      }
+      if (!dup) pts.push(p);
+    }
+  }
+  return pts;
+}
+
+function objVal(p){
+  return state.obj.a*p[0] + state.obj.b*p[1];
+}
+
+function lineSegmentInBox(a, b, c, box){
+  if (Math.abs(a) < 1e-12 && Math.abs(b) < 1e-12) return null;
+  let px, py;
+  if (Math.abs(a) > Math.abs(b)){ px = c/a; py = 0; }
+  else { px = 0; py = c/b; }
+  let dx = -b, dy = a;
+  const len = Math.hypot(dx, dy);
+  dx /= len; dy /= len;
+
+  let t0 = -1e12, t1 = 1e12;
+  if (Math.abs(dx) > 1e-12){
+    let ta = (box.xmin - px)/dx, tb = (box.xmax - px)/dx;
+    if (ta > tb){ const s = ta; ta = tb; tb = s; }
+    t0 = Math.max(t0, ta); t1 = Math.min(t1, tb);
+  } else if (px < box.xmin || px > box.xmax) return null;
+
+  if (Math.abs(dy) > 1e-12){
+    let ta = (box.ymin - py)/dy, tb = (box.ymax - py)/dy;
+    if (ta > tb){ const s = ta; ta = tb; tb = s; }
+    t0 = Math.max(t0, ta); t1 = Math.min(t1, tb);
+  } else if (py < box.ymin || py > box.ymax) return null;
+
+  if (t0 > t1) return null;
+  return [
+    [px + t0*dx, py + t0*dy],
+    [px + t1*dx, py + t1*dy]
+  ];
+}
+
+function distToSegment(px, py, x1, y1, x2, y2){
+  const dx = x2-x1, dy = y2-y1;
+  const L2 = dx*dx + dy*dy;
+  let t = L2 ? ((px-x1)*dx + (py-y1)*dy) / L2 : 0;
+  t = Math.max(0, Math.min(1, t));
+  return Math.hypot(px - (x1 + t*dx), py - (y1 + t*dy));
+}
+/* =========================================================
+   CANVAS SETUP
+   ========================================================= */
+const cv = document.getElementById('graph');
+const ctx = cv.getContext('2d');
+let W = 600, H = 600, scale = 40, ox = 0, oy = 0;
+
+function X(x){ return ox + x*scale; }
+function Y(y){ return oy - y*scale; }
+function invX(sx){ return (sx - ox) / scale; }
+function invY(sy){ return (oy - sy) / scale; }
+
+function computeTransform(){
+  const v = state.view;
+  scale = Math.min(W / (v.xmax - v.xmin), H / (v.ymax - v.ymin));
+  ox = (W - (v.xmax - v.xmin)*scale)/2 - v.xmin*scale;
+  oy = (H - (v.ymax - v.ymin)*scale)/2 + v.ymax*scale;
+}
+
+function resize(){
+  const wrap = document.querySelector('.canvas-wrap');
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  if (!w || !h) return;
+  const dpr = window.devicePixelRatio || 1;
+  cv.width  = Math.round(w*dpr);
+  cv.height = Math.round(h*dpr);
+  cv.style.width  = w + 'px';
+  cv.style.height = h + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  W = w; H = h;
+  computeTransform();
+  draw();
+}
+
+/* =========================================================
+   ANALYSIS
+   ========================================================= */
+let A = null;
+
+function analyse(){
+  const cs = activeConstraints();
+  const poly = polyIntersect(state.view, cs);
+  const empty = poly.length < 3;
+
+  const bigPoly = polyIntersect(
+    {xmin:-BIG, xmax:BIG, ymin:-BIG, ymax:BIG}, cs
+  );
+  const unbounded = bigPoly.some(p =>
+    Math.abs(p[0]) > BIG*0.9 || Math.abs(p[1]) > BIG*0.9
+  );
+
+  const verts = trueVertices();
+  const sense = state.obj.sense;
+
+  let best = null;
+  for (const p of verts){
+    const v = objVal(p);
+    if (!best || (sense === 'max' ? v > best.v + 1e-9 : v < best.v - 1e-9)){
+      best = {p, v};
+    }
+  }
+
+  let objUnbounded = false;
+  if (unbounded && bigPoly.length){
+    for (const p of bigPoly){
+      if (Math.abs(p[0]) <= BIG*0.9 && Math.abs(p[1]) <= BIG*0.9) continue;
+      const v = objVal(p);
+      if (!best || (sense === 'max' ? v > best.v + 1e-6 : v < best.v - 1e-6)){
+        objUnbounded = true;
+        break;
+      }
+    }
+  }
+
+  return {poly, verts, best, unbounded, empty, objUnbounded};
+}
+
+function bestIntegerPoint(poly){
+  if (!poly.length) return null;
+  let xmin = Infinity, xmax = -Infinity, ymin = Infinity, ymax = -Infinity;
+  for (const p of poly){
+    xmin = Math.min(xmin, p[0]); xmax = Math.max(xmax, p[0]);
+    ymin = Math.min(ymin, p[1]); ymax = Math.max(ymax, p[1]);
+  }
+  xmin = Math.max(xmin, state.view.xmin);
+  xmax = Math.min(xmax, state.view.xmax);
+  ymin = Math.max(ymin, state.view.ymin);
+  ymax = Math.min(ymax, state.view.ymax);
+
+  const cs = activeConstraints();
+  const sense = state.obj.sense;
+  let best = null;
+  for (let x = Math.ceil(xmin); x <= Math.floor(xmax); x++){
+    for (let y = Math.ceil(ymin); y <= Math.floor(ymax); y++){
+      if (!inAll([x, y], cs)) continue;
+      const v = objVal([x, y]);
+      if (!best || (sense === 'max' ? v > best.v + 1e-9 : v < best.v - 1e-9)){
+        best = {p:[x, y], v};
+      }
+    }
+  }
+  return best;
+}
+/* =========================================================
+   DRAWING
+   ========================================================= */
+function fmt(v){
+  if (Math.abs(v) < 1e-9) v = 0;
+  if (Number.isInteger(v)) return String(v);
+  return String(Math.round(v*100)/100);
+}
+
+function niceStep(){
+  const target = 46;
+  const raw = target / scale;
+  const steps = [1,2,5,10,20,25,50,100,200];
+  for (const s of steps) if (s >= raw) return s;
+  return 500;
+}
+
+function roundRect(x, y, w, h, r){
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.arcTo(x+w, y,   x+w, y+h, r);
+  ctx.arcTo(x+w, y+h, x,   y+h, r);
+  ctx.arcTo(x,   y+h, x,   y,   r);
+  ctx.arcTo(x,   y,   x+w, y,   r);
+  ctx.closePath();
+}
+
+function chip(text, cx, cy, color){
+  ctx.font = '600 12px "DM Mono", monospace';
+  const w = ctx.measureText(text).width + 14;
+  const h = 21;
+  ctx.fillStyle = 'rgba(255,253,249,0.94)';
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.2;
+  roundRect(cx - w/2, cy - h/2, w, h, 7);
+  ctx.fill();
+  ctx.stroke();
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, cx, cy + 0.5);
+}
+
+function drawGrid(){
+  const v = state.view;
+  const step = niceStep();
+
+  /* minor grid */
+  ctx.strokeStyle = '#efe8dc';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (let x = Math.ceil(v.xmin); x <= Math.floor(v.xmax); x++){
+    const sx = Math.round(X(x)) + 0.5;
+    ctx.moveTo(sx, 0); ctx.lineTo(sx, H);
+  }
+  for (let y = Math.ceil(v.ymin); y <= Math.floor(v.ymax); y++){
+    const sy = Math.round(Y(y)) + 0.5;
+    ctx.moveTo(0, sy); ctx.lineTo(W, sy);
+  }
+  ctx.stroke();
+
+  /* axes */
+  const hasXAxis = v.ymin <= 0 && v.ymax >= 0;
+  const hasYAxis = v.xmin <= 0 && v.xmax >= 0;
+  ctx.strokeStyle = '#a89b88';
+  ctx.lineWidth = 1.4;
+  ctx.beginPath();
+  if (hasXAxis){ ctx.moveTo(X(v.xmin), Y(0)); ctx.lineTo(X(v.xmax), Y(0)); }
+  if (hasYAxis){ ctx.moveTo(X(0), Y(v.ymin)); ctx.lineTo(X(0), Y(v.ymax)); }
+  ctx.stroke();
+
+  /* tick labels */
+  ctx.fillStyle = '#9c9182';
+  ctx.font = '11px "DM Mono", monospace';
+
+  const axisYworld = hasXAxis ? 0 : v.ymin;
+  const axisXworld = hasYAxis ? 0 : v.xmin;
+  const labelY = Math.min(Math.max(Y(axisYworld) + 7, 4), H - 18);
+  const labelX = Math.min(Math.max(X(axisXworld) - 7, 22), W - 6);
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+  for (let x = Math.ceil(v.xmin/step)*step; x <= v.xmax; x += step){
+    if (Math.abs(x) < 1e-9) continue;
+    ctx.fillText(fmt(x), X(x), labelY);
+  }
+
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'middle';
+  for (let y = Math.ceil(v.ymin/step)*step; y <= v.ymax; y += step){
+    if (Math.abs(y) < 1e-9) continue;
+    ctx.fillText(fmt(y), labelX, Y(y));
+  }
+
+  /* origin */
+  if (hasXAxis && hasYAxis){
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'top';
+    ctx.fillText('0', X(0) - 5, Y(0) + 5);
+  }
+}
+function drawRegion(poly){
+  if (poly.length < 3) return;
+  ctx.beginPath();
+  poly.forEach((p, i) => {
+    const sx = X(p[0]), sy = Y(p[1]);
+    i ? ctx.lineTo(sx, sy) : ctx.moveTo(sx, sy);
+  });
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(16,185,129,0.17)';
+  ctx.fill();
+}
+
+function drawConstraintLines(){
+  for (const k of activeConstraints()){
+    const n = norm(k);
+    const seg = lineSegmentInBox(n.A, n.B, n.C, state.view);
+    if (!seg) continue;
+    const hl = (state.hoverId === k.id || state.dragId === k.id);
+
+    ctx.beginPath();
+    ctx.moveTo(X(seg[0][0]), Y(seg[0][1]));
+    ctx.lineTo(X(seg[1][0]), Y(seg[1][1]));
+    ctx.strokeStyle = k.color;
+    ctx.globalAlpha = hl ? 1 : 0.85;
+    ctx.lineWidth = hl ? 4 : 2.4;
+    ctx.setLineDash([]);
+    ctx.lineCap = 'round';
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+
+    if (hl){
+      const mx = (seg[0][0] + seg[1][0])/2;
+      const my = (seg[0][1] + seg[1][1])/2;
+      const opTxt = k.op === '<=' ? '≤' : '≥';
+      chip(`${fmt(k.a)}x + ${fmt(k.b)}y ${opTxt} ${fmt(k.c)}`,
+           X(mx), Y(my), k.color);
+    }
+  }
+}
+
+function currentK(){
+  if (state.sweep !== null) return state.sweep;
+  if (A && A.best) return A.best.v;
+  return 0;
+}
+
+function drawObjective(){
+  const a = state.obj.a, b = state.obj.b;
+  if (Math.abs(a) < 1e-9 && Math.abs(b) < 1e-9) return;
+  const k = currentK();
+  const seg = lineSegmentInBox(a, b, k, state.view);
+  if (!seg) return;
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(X(seg[0][0]), Y(seg[0][1]));
+  ctx.lineTo(X(seg[1][0]), Y(seg[1][1]));
+  ctx.setLineDash([9, 6]);
+  ctx.strokeStyle = '#b45309';
+  ctx.lineWidth = 2.2;
+  ctx.lineCap = 'butt';
+  ctx.stroke();
+  ctx.restore();
+
+  /* improving-direction arrow at midpoint */
+  let dx = a, dy = b;
+  if (state.obj.sense === 'min'){ dx = -dx; dy = -dy; }
+  const len = Math.hypot(dx, dy);
+  if (len > 1e-9){
+    dx /= len; dy /= len;
+    const mx = (seg[0][0] + seg[1][0])/2;
+    const my = (seg[0][1] + seg[1][1])/2;
+    const sx = X(mx), sy = Y(my);
+    const ex = sx + dx*46, ey = sy - dy*46;
+    ctx.beginPath();
+    ctx.moveTo(sx, sy);
+    ctx.lineTo(ex, ey);
+    ctx.strokeStyle = '#b45309';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([]);
+    ctx.stroke();
+    /* arrowhead */
+    const ang = Math.atan2(ey - sy, ex - sx);
+    ctx.beginPath();
+    ctx.moveTo(ex, ey);
+    ctx.lineTo(ex - 9*Math.cos(ang - 0.4), ey - 9*Math.sin(ang - 0.4));
+    ctx.lineTo(ex - 9*Math.cos(ang + 0.4), ey - 9*Math.sin(ang + 0.4));
+    ctx.closePath();
+    ctx.fillStyle = '#b45309';
+    ctx.fill();
+  }
+
+  /* label at 25% along the segment */
+  const lx = seg[0][0] + 0.25*(seg[1][0] - seg[0][0]);
+  const ly = seg[0][1] + 0.25*(seg[1][1] - seg[0][1]);
+  chip(`P = ${fmt(k)}`, X(lx), Y(ly), '#b45309');
+}
+function drawVertices(){
+  if (!A) return;
+  const best = A.best;
+  const v = state.view;
+  for (const p of A.verts){
+    if (p[0] < v.xmin - 1.5 || p[0] > v.xmax + 1.5 ||
+        p[1] < v.ymin - 1.5 || p[1] > v.ymax + 1.5) continue;
+
+    const sx = X(p[0]), sy = Y(p[1]);
+    const isBest = best &&
+      Math.hypot(best.p[0] - p[0], best.p[1] - p[1]) < 1e-6;
+
+    if (isBest){
+      ctx.beginPath();
+      ctx.arc(sx, sy, 12, 0, Math.PI*2);
+      ctx.strokeStyle = 'rgba(180,83,9,0.45)';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+    }
+
+    ctx.beginPath();
+    ctx.arc(sx, sy, isBest ? 7 : 5, 0, Math.PI*2);
+    ctx.fillStyle = isBest ? '#b45309' : '#1f2937';
+    ctx.fill();
+    ctx.strokeStyle = '#fffdf9';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+}
+
+function drawIntPoint(){
+  const ip = bestIntegerPoint(A ? A.poly : []);
+  if (!ip) return;
+  const sx = X(ip.p[0]), sy = Y(ip.p[1]);
+  ctx.beginPath();
+  ctx.arc(sx, sy, 9, 0, Math.PI*2);
+  ctx.fillStyle = '#7c3aed';
+  ctx.fill();
+  ctx.strokeStyle = '#fffdf9';
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+  chip(`(${ip.p[0]}, ${ip.p[1]})  P=${fmt(ip.v)}`, sx, sy - 26, '#7c3aed');
+}
+
+function drawEmptyMessage(){
+  ctx.save();
+  ctx.font = '600 15px "Lora", serif';
+  ctx.fillStyle = '#b91c1c';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('No feasible region', W/2, H/2);
+  ctx.font = '12.5px "DM Sans", sans-serif';
+  ctx.fillStyle = '#a06a6a';
+  ctx.fillText('No point satisfies every constraint.', W/2, H/2 + 22);
+  ctx.restore();
+}
+
+function draw(){
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#fffdf9';
+  ctx.fillRect(0, 0, W, H);
+
+  drawGrid();
+
+  if (A && A.poly.length >= 3) drawRegion(A.poly);
+  drawConstraintLines();
+  if (A && A.poly.length >= 3){
+    drawObjective();
+    drawVertices();
+    if (state.integer) drawIntPoint();
+  } else {
+    drawEmptyMessage();
+  }
+}
+/* =========================================================
+   PANEL UPDATES
+   ========================================================= */
+function updateSweepSlider(){
+  const r = document.getElementById('sweepRange');
+  const lab = document.getElementById('sweepVal');
+
+  if (!A || A.poly.length < 3){
+    r.disabled = true;
+    lab.textContent = '—';
+    return;
+  }
+  r.disabled = false;
+
+  let mn = Infinity, mx = -Infinity;
+  for (const p of A.poly){
+    const v = objVal(p);
+    if (v < mn) mn = v;
+    if (v > mx) mx = v;
+  }
+  if (mx - mn < 1e-6) mx = mn + 1;
+
+  r.min = mn; r.max = mx; r.step = (mx - mn)/500;
+
+  const k = state.sweep === null
+    ? (A.best ? A.best.v : mx)
+    : state.sweep;
+  const kk = Math.min(mx, Math.max(mn, k));
+  r.value = kk;
+  lab.textContent = `P = ${fmt(kk)}`;
+}
+
+function updateResults(){
+  const status = document.getElementById('statusLine');
+  const wrap = document.getElementById('vtableWrap');
+  const conc = document.getElementById('conclusion');
+
+  if (!A || A.poly.length < 3){
+    status.className = 'status bad';
+    status.textContent = 'No feasible region — no point satisfies every constraint at once.';
+    wrap.innerHTML = '';
+    conc.innerHTML = '';
+    return;
+  }
+
+  if (A.unbounded){
+    status.className = 'status warn';
+    status.textContent = 'Feasible region is UNBOUNDED — check carefully whether an optimum really exists.';
+  } else {
+    status.className = 'status';
+    status.textContent = 'Feasible region is bounded — the optimum must lie at a vertex.';
+  }
+
+  const sense = state.obj.sense;
+  const senseWord = sense === 'max' ? 'Maximum' : 'Minimum';
+
+  const sorted = [...A.verts].sort((p, q) => p[0] - q[0] || p[1] - q[1]);
+
+  let html = '<table class="vt"><thead><tr><th>Vertex (x, y)</th><th>P</th></tr></thead><tbody>';
+  for (const p of sorted){
+    const v = objVal(p);
+    const isBest = A.best &&
+      Math.hypot(A.best.p[0] - p[0], A.best.p[1] - p[1]) < 1e-6;
+    html += `<tr class="${isBest ? 'opt' : ''}">` +
+            `<td>(${fmt(p[0])}, ${fmt(p[1])})</td>` +
+            `<td>${fmt(v)}</td></tr>`;
+  }
+  html += '</tbody></table>';
+  wrap.innerHTML = html;
+
+  /* conclusion */
+  let msg = '';
+  if (A.objUnbounded){
+    msg = `<strong>The objective is unbounded.</strong> Sweeping the line in the improving ` +
+          `direction never leaves the region, so no ${senseWord.toLowerCase()} exists. ` +
+          `Add another constraint (e.g. a demand limit) to bound the problem.`;
+  } else if (A.best){
+    const bp = A.best.p;
+    msg = `<strong>${senseWord} = ${fmt(A.best.v)}</strong> at ` +
+          `x = ${fmt(bp[0])}, y = ${fmt(bp[1])}.`;
+    if (state.integer){
+      const ip = bestIntegerPoint(A.poly);
+      if (ip){
+        msg += `<br><br>Integer requirement: the best whole-number mix is ` +
+               `(${ip.p[0]}, ${ip.p[1]}) giving P = <strong>${fmt(ip.v)}</strong>.`;
+        if (Math.abs(ip.v - A.best.v) > 1e-6){
+          msg += ` Note this is lower than the continuous optimum of ${fmt(A.best.v)} — ` +
+                 `you cannot just round the vertex.`;
+        }
+      }
+    }
+  }
+  conc.innerHTML = msg ? `<div class="conclusion">${msg}</div>` : '';
+}
+
+function refresh(){
+  A = analyse();
+  updateSweepSlider();
+  updateResults();
+  draw();
+}
+/* =========================================================
+   CONSTRAINT ROW UI
+   ========================================================= */
+function buildConstraintRows(){
+  const list = document.getElementById('constraintList');
+  list.innerHTML = '';
+
+  state.constraints.forEach(k => {
+    const row = document.createElement('div');
+    row.className = 'crow';
+    row.dataset.id = k.id;
+    row.style.setProperty('--c', k.color);
+
+    const inpA = document.createElement('input');
+    inpA.className = 'num'; inpA.type = 'number'; inpA.step = '0.5';
+    inpA.value = k.a;
+
+    const s1 = document.createElement('span');
+    s1.className = 'var'; s1.textContent = 'x +';
+
+    const inpB = document.createElement('input');
+    inpB.className = 'num'; inpB.type = 'number'; inpB.step = '0.5';
+    inpB.value = k.b;
+
+    const s2 = document.createElement('span');
+    s2.className = 'var'; s2.textContent = 'y';
+
+    const sel = document.createElement('select');
+    sel.innerHTML = '<option value="<=">≤</option><option value=">=">≥</option>';
+    sel.value = k.op;
+
+    const inpC = document.createElement('input');
+    inpC.className = 'num'; inpC.type = 'number'; inpC.step = '1';
+    inpC.value = k.c;
+    inpC.dataset.role = 'c';
+
+    const del = document.createElement('button');
+    del.className = 'del';
+    del.textContent = '×';
+    del.title = 'Remove this constraint';
+
+    row.append(inpA, s1, inpB, s2, sel, inpC, del);
+    list.appendChild(row);
+
+    const commit = () => {
+      const a = parseFloat(inpA.value), b = parseFloat(inpB.value), c = parseFloat(inpC.value);
+      if (isFinite(a)) k.a = a;
+      if (isFinite(b)) k.b = b;
+      if (isFinite(c)) k.c = c;
+      k.op = sel.value;
+      state.sweep = null;
+      refresh();
+    };
+
+    inpA.addEventListener('input', commit);
+    inpB.addEventListener('input', commit);
+    inpC.addEventListener('input', commit);
+    sel.addEventListener('change', commit);
+
+    del.addEventListener('click', () => {
+      state.constraints = state.constraints.filter(x => x.id !== k.id);
+      state.sweep = null;
+      buildConstraintRows();
+      refresh();
+    });
+
+    row.addEventListener('mouseenter', () => { state.hoverId = k.id; draw(); });
+    row.addEventListener('mouseleave', () => { state.hoverId = null; draw(); });
+  });
+}
+
+function syncConstraintInputs(){
+  document.querySelectorAll('.crow').forEach(row => {
+    const id = Number(row.dataset.id);
+    const k = state.constraints.find(x => x.id === id);
+    if (!k) return;
+    const inp = row.querySelector('[data-role="c"]');
+    if (inp && document.activeElement !== inp) inp.value = k.c;
+  });
+}
+/* =========================================================
+   DEFAULT STATE (Section 4 factory problem)
+   ========================================================= */
+function initDefault(){
+  state.view = {xmin:-1, xmax:11, ymin:-1, ymax:11};
+  state.obj = {a:30, b:40, sense:'max'};
+  state.integer = false;
+  state.sweep = null;
+  state.hoverId = null;
+  state.dragId = null;
+  state.constraints = [
+    {a:2, b:1, op:'<=', c:16},
+    {a:1, b:3, op:'<=', c:24},
+    {a:1, b:0, op:'>=', c:0},
+    {a:0, b:1, op:'>=', c:0}
+  ].map((k, i) => ({
+    id: uid++,
+    a: k.a, b: k.b, c: k.c, op: k.op,
+    color: PALETTE[i % PALETTE.length],
+    on: true
+  }));
+  buildConstraintRows();
+  syncObjectiveInputs();
+  computeTransform();
+  refresh();
+}
+
+/* =========================================================
+   OBJECTIVE UI
+   ========================================================= */
+function syncObjectiveInputs(){
+  document.getElementById('objA').value = state.obj.a;
+  document.getElementById('objB').value = state.obj.b;
+  document.querySelectorAll('input[name="sense"]').forEach(r => {
+    r.checked = (r.value === state.obj.sense);
+  });
+  document.getElementById('intMode').checked = state.integer;
+}
+
+function wireObjective(){
+  const oa = document.getElementById('objA');
+  const ob = document.getElementById('objB');
+
+  const commit = () => {
+    const a = parseFloat(oa.value), b = parseFloat(ob.value);
+    if (isFinite(a)) state.obj.a = a;
+    if (isFinite(b)) state.obj.b = b;
+    state.sweep = null;
+    refresh();
+  };
+  oa.addEventListener('input', commit);
+  ob.addEventListener('input', commit);
+
+  document.querySelectorAll('input[name="sense"]').forEach(r => {
+    r.addEventListener('change', () => {
+      if (r.checked){
+        state.obj.sense = r.value;
+        state.sweep = null;
+        refresh();
+      }
+    });
+  });
+
+  document.getElementById('intMode').addEventListener('change', e => {
+    state.integer = e.target.checked;
+    refresh();
+  });
+}
+
+/* =========================================================
+   SWEEP UI
+   ========================================================= */
+function wireSweep(){
+  const r = document.getElementById('sweepRange');
+  r.addEventListener('input', e => {
+    const v = parseFloat(e.target.value);
+    if (!isFinite(v)) return;
+    state.sweep = v;
+    document.getElementById('sweepVal').textContent = `P = ${fmt(v)}`;
+    draw();
+  });
+
+  document.getElementById('sweepReset').addEventListener('click', () => {
+    state.sweep = null;
+    refresh();
+  });
+}
+/* =========================================================
+   CANVAS DRAGGING
+   ========================================================= */
+function canvasPos(e){
+  const rect = cv.getBoundingClientRect();
+  return {x: e.clientX - rect.left, y: e.clientY - rect.top};
+}
+
+function pickLine(sx, sy){
+  let best = null, bestD = 15;
+  for (const k of activeConstraints()){
+    if (Math.abs(k.a) < 1e-12 && Math.abs(k.b) < 1e-12) continue;
+    const n = norm(k);
+    const seg = lineSegmentInBox(n.A, n.B, n.C, state.view);
+    if (!seg) continue;
+    const d = distToSegment(
+      sx, sy,
+      X(seg[0][0]), Y(seg[0][1]),
+      X(seg[1][0]), Y(seg[1][1])
+    );
+    if (d < bestD){ bestD = d; best = k; }
+  }
+  return best;
+}
+
+function wireCanvas(){
+  let dragging = false;
+
+  cv.addEventListener('pointerdown', e => {
+    const p = canvasPos(e);
+    const k = pickLine(p.x, p.y);
+    if (!k) return;
+    state.dragId = k.id;
+    dragging = true;
+    cv.classList.add('dragging');
+    cv.setPointerCapture(e.pointerId);
+    draw();
+  });
+
+  cv.addEventListener('pointermove', e => {
+    const p = canvasPos(e);
+
+    if (dragging && state.dragId !== null){
+      const k = state.constraints.find(x => x.id === state.dragId);
+      if (!k) return;
+      const mx = invX(p.x), my = invY(p.y);
+      if (Math.abs(k.a) < 1e-12 && Math.abs(k.b) < 1e-12) return;
+      let c = k.a*mx + k.b*my;
+      c = Math.round(c * 2) / 2;   // snap to halves
+      k.c = c;
+      state.sweep = null;
+      syncConstraintInputs();
+      refresh();
+      return;
+    }
+
+    /* hover highlight */
+    const k = pickLine(p.x, p.y);
+    const id = k ? k.id : null;
+    if (id !== state.hoverId){
+      state.hoverId = id;
+      draw();
+    }
+  });
+
+  const end = e => {
+    if (!dragging) return;
+    dragging = false;
+    state.dragId = null;
+    cv.classList.remove('dragging');
+    try { cv.releasePointerCapture(e.pointerId); } catch (err) {}
+    refresh();
+  };
+  cv.addEventListener('pointerup', end);
+  cv.addEventListener('pointercancel', end);
+  cv.addEventListener('pointerleave', () => {
+    if (!dragging && state.hoverId !== null){
+      state.hoverId = null;
+      draw();
+    }
+  });
+}
+
+/* =========================================================
+   ADD CONSTRAINT
+   ========================================================= */
+function wireAdd(){
+  document.getElementById('addConstraint').addEventListener('click', () => {
+    const idx = state.constraints.length;
+    state.constraints.push({
+      id: uid++,
+      a: 1, b: 1, c: 6, op: '<=',
+      color: PALETTE[idx % PALETTE.length],
+      on: true
+    });
+    state.sweep = null;
+    buildConstraintRows();
+    refresh();
+  });
+}
+
+/* =========================================================
+   BOOT
+   ========================================================= */
+function boot(){
+  wireObjective();
+  wireSweep();
+  wireCanvas();
+  wireAdd();
+
+  const ro = new ResizeObserver(() => resize());
+  ro.observe(document.querySelector('.canvas-wrap'));
+
+  initDefault();
+  resize();
+}
+
+if (document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', boot);
+} else {
+  boot();
+}
+
+})();
+      </script>
+    </div>
+  </div>
+
+  <div id="s5">
+    <p class="section-marker">Section 5</p>
+    <h2 class="section-title">Interpreting Optimal Solutions</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>A finished LP answer is not a coordinate pair — it is a <strong>report</strong>. Include the decision variables, the optimal value, the real-world meaning, and assumptions or limitations.</p>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Checklist for an optimal solution</strong></p>
+          <ul>
+            <li>Are there integer restrictions?</li>
+            <li>Is the feasible region bounded?</li>
+            <li>Does the answer make practical sense?</li>
+            <li><ib-term>identify</ib-term> any alternative optimal solutions (a flat edge of the region).</li>
+            <li>State the assumptions and limitations of the model.</li>
+          </ul>
+        </div>
+
+        <math-box type="example" title="Writing the report" number="10">
+          <span slot="body">
+            <p>For the factory example in Section 4: "Make 5 units of A and 6 units of B for a maximum profit of \$390. This assumes hourly capacities, linear profits, and that fractional units are not allowed. The model ignores set-up times and market demand."</p>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Reinterpret your baker's optimum: state the decision, the profit, and one limitation of the model.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Context over coordinates">
+          <p>"$(5, 6)$ gives \$390" is a calculation. "Make 5 cakes and 6 loaves for \$390" is an interpretation — that is what criteria A and C reward.</p>
+        </side-note>
+        <side-note label="Flat edges">
+          <p>If two adjacent vertices give the same optimum, every point on the edge between them is also optimal.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s6">
+    <p class="section-marker">Section 6</p>
+    <h2 class="section-title">Analysing &amp; Using Well-Defined Procedures for Optimisation</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>Optimisation is a fixed, repeatable procedure. Following it in order removes most errors.</p>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Standard procedure</strong></p>
+          <ol class="steps">
+            <li>Understand the problem.</li>
+            <li>Define variables with units.</li>
+            <li>Write the objective function.</li>
+            <li>Write all constraints.</li>
+            <li>Include non-negativity constraints.</li>
+            <li>Graph accurately.</li>
+            <li>Identify the feasible region.</li>
+            <li>Find all vertices.</li>
+            <li>Evaluate the objective at each vertex.</li>
+            <li>Select the optimal value.</li>
+            <li>Interpret in context.</li>
+          </ol>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Common errors</strong></p>
+          <ul>
+            <li>Forgetting non-negativity constraints.</li>
+            <li>Shading the wrong side.</li>
+            <li>Missing a vertex.</li>
+            <li>Not checking practical sense.</li>
+            <li>Confusing max/min with the constraints themselves.</li>
+          </ul>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Reopen your bakery model and walk the full 11-step procedure aloud, checking off each step.</li>
+            <li>Find one error you made in an earlier LP attempt and <ib-term>justify</ib-term> the corrected step.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Procedure beats intuition">
+          <p>In optimisation, a fixed algorithm beats guessing. The vertices always hold the answer — trust the method.</p>
+        </side-note>
+        <side-note label="Units everywhere">
+          <p>Defining variables with units (kg, hours, \$) prevents the most common modelling mistakes.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<style>
+  .wg { background:#fff; border:1px solid #dde3ea; border-radius:12px; padding:12px 14px 10px; margin:1.25rem 0; box-shadow:0 1px 2px rgba(16,24,40,.05); }
+  .wg .wg-cap { font-family:"DM Sans",sans-serif; font-size:.8rem; color:#5c6774; margin:0 0 .5rem; line-height:1.5; }
+  .wg .jxgbox { width:100%; height:auto; max-height:560px; aspect-ratio:1/1; border-radius:8px; background:#fff; }
+</style>
+
+<script>
+function shadePolygon(board, vertices, color) {
+  board.create('polygon', vertices, {
+    borders: {
+      strokeWidth: 0, strokeOpacity: 0,
+      highlightStrokeWidth: 0, highlightStrokeOpacity: 0
+    },
+    vertices: { visible: false },
+    fillColor: color,
+    fillOpacity: 0.18,
+    highlight: false,
+    withLabel: false,
+    fixed: true
+  });
+}
+
+(function () {
+  /* b1 */
+  const b1 = JXG.JSXGraph.initBoard('b1', { keepAspectRatio: true,
+    boundingbox: [-5, 10, 10, -5],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  shadePolygon(b1, [[-5,-5], [-3,-5], [4.5,10], [-5,10]], '#2563eb');
+  b1.create('line', [[0,1], [1,3]], {
+    dash: 2, strokeColor: '#d9480f', strokeWidth: 3,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b1.create('point', [0, 0], {
+    name: '(0, 0)', color: '#dc2626', fixed: true, size: 5,
+    label: { offset: [10, -18], fontSize: 13 }
+  });
+  b1.create('text', [-4.6, 9.3,
+    'Test (0, 0):   0 > 1?   No  →  shade above the line'], {
+    fontSize: 13, anchorX: 'left', color: '#2563eb'
+  });
+})();
+
+(function () {
+  /* b2 */
+  const b2 = JXG.JSXGraph.initBoard('b2', { keepAspectRatio: true,
+    boundingbox: [-2, 8, 8, -2],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  shadePolygon(b2, [[0,0], [0,2], [2,4], [6,0]], '#10b981');
+  b2.create('line', [[0,0], [1,0]], {
+    strokeColor: '#2563eb', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b2.create('line', [[0,0], [0,1]], {
+    strokeColor: '#059669', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b2.create('line', [[6,0], [0,6]], {
+    strokeColor: '#d97706', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b2.create('line', [[0,2], [1,3]], {
+    strokeColor: '#dc2626', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b2.create('text', [4.6, 3.5, 'x + y = 6'], {
+    fontSize: 12, color: '#d97706', anchorX: 'left', anchorY: 'middle'
+  });
+  b2.create('text', [3.6, 2.7, 'y = x + 2'], {
+    fontSize: 12, color: '#dc2626', anchorX: 'left', anchorY: 'middle'
+  });
+})();
+
+(function () {
+  /* b3 */
+  const b3 = JXG.JSXGraph.initBoard('b3', { keepAspectRatio: true,
+    boundingbox: [-2, 8, 8, -2],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  shadePolygon(b3, [[0,0], [0,2], [2,4], [6,0]], '#10b981');
+  b3.create('line', [[0,0], [1,0]], {
+    strokeColor: '#2563eb', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b3.create('line', [[0,0], [0,1]], {
+    strokeColor: '#059669', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b3.create('line', [[6,0], [0,6]], {
+    strokeColor: '#d97706', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b3.create('line', [[0,2], [1,3]], {
+    strokeColor: '#dc2626', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  const V3 = [
+    { p: [0,0], dx: [-28, -14] },
+    { p: [0,2], dx: [-36, 6]   },
+    { p: [2,4], dx: [4, 10]    },
+    { p: [6,0], dx: [4, -18]   }
+  ];
+  V3.forEach(v => {
+    b3.create('point', v.p, {
+      name: '(' + v.p[0] + ', ' + v.p[1] + ')',
+      color: '#b45309', fixed: true, size: 6,
+      label: { offset: v.dx, fontSize: 13 }
+    });
+  });
+})();
+
+(function () {
+  /* b4 */
+  const b4 = JXG.JSXGraph.initBoard('b4', { keepAspectRatio: true,
+    boundingbox: [-2, 7, 7, -2],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  shadePolygon(b4, [[-2,4], [-2,-2], [4,-2]], '#2563eb');
+  b4.create('line', [[4,-2], [-2,4]], {
+    strokeColor: '#2563eb', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  shadePolygon(b4, [[-2,7], [7,7], [7,-2]], '#d9480f');
+  b4.create('line', [[7,-2], [-2,7]], {
+    strokeColor: '#d9480f', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b4.create('text', [-1.6, 6.3, 'x + y ≤ 2'], {
+    fontSize: 12.5, color: '#2563eb', anchorX: 'left'
+  });
+  b4.create('text', [2.6, -1.3, 'x + y ≥ 5'], {
+    fontSize: 12.5, color: '#d9480f', anchorX: 'left'
+  });
+  b4.create('text', [-1.6, 5.6, 'No overlap → no feasible region'], {
+    fontSize: 13, color: '#991b1b', anchorX: 'left'
+  });
+})();
+
+(function () {
+  /* b5 */
+  const b5 = JXG.JSXGraph.initBoard('b5', { keepAspectRatio: true,
+    boundingbox: [-1, 9, 9, -1],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  shadePolygon(b5, [[0,4], [0,9], [9,9], [9,0], [4,0]], '#10b981');
+  b5.create('line', [[0,0], [1,0]], {
+    strokeColor: '#2563eb', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b5.create('line', [[0,0], [0,1]], {
+    strokeColor: '#059669', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b5.create('line', [[4,0], [0,4]], {
+    strokeColor: '#dc2626', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b5.create('text', [5.4, 1.4, 'x + y = 4'], {
+    fontSize: 12.5, color: '#dc2626', anchorX: 'left'
+  });
+  b5.create('text', [0.4, 8.3, 'Unbounded — keeps going up and right'], {
+    fontSize: 13, color: '#991b1b', anchorX: 'left'
+  });
+})();
+
+(function () {
+  /* b6 */
+  const b6 = JXG.JSXGraph.initBoard('b6', { keepAspectRatio: true,
+    boundingbox: [-2, 11, 11, -2],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  shadePolygon(b6, [[0,0], [8,0], [4.8,6.4], [0,8]], '#10b981');
+  b6.create('line', [[0,0], [1,0]], {
+    strokeColor: '#2563eb', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b6.create('line', [[0,0], [0,1]], {
+    strokeColor: '#059669', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b6.create('line', [[8,0], [0,16]], {
+    strokeColor: '#d97706', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b6.create('line', [[0,8], [24,0]], {
+    strokeColor: '#dc2626', strokeWidth: 2.5,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  b6.create('line', [[0,10], [4.8,6.4]], {
+    dash: 2, strokeColor: '#b45309', strokeWidth: 2.2,
+    straightFirst: true, straightLast: true, fixed: true
+  });
+  const V6 = [
+    { p: [0,0],     P: 0,   dx: [10, -18] },
+    { p: [8,0],     P: 240, dx: [10, -18] },
+    { p: [4.8,6.4], P: 400, dx: [10, 10]  },
+    { p: [0,8],     P: 320, dx: [-64, 6]  }
+  ];
+  V6.forEach(v => {
+    const opt = v.P === 400;
+    if (opt) {
+      b6.create('circle', [v.p, 0.45], {
+        strokeColor: '#b45309', strokeWidth: 2,
+        fillColor: 'none', fillOpacity: 0, dash: 1
+      });
+    }
+    b6.create('point', v.p, {
+      name: '(' + v.p[0] + ', ' + v.p[1] + ')  P = ' + v.P,
+      color: opt ? '#b45309' : '#1f2937',
+      fixed: true, size: opt ? 7 : 5,
+      label: { offset: v.dx, fontSize: 12.5 }
+    });
+  });
+  b6.create('text', [5.2, 6.2, '2x + y = 16'], {
+    fontSize: 12, color: '#d97706', anchorX: 'left'
+  });
+  b6.create('text', [1.4, 7.6, 'x + 3y = 24'], {
+    fontSize: 12, color: '#dc2626', anchorX: 'left'
+  });
+  b6.create('text', [6.4, 3.1, 'P = 400'], {
+    fontSize: 12.5, color: '#b45309', anchorX: 'left'
+  });
+})();
+</script>
+
+</body>
+</html>

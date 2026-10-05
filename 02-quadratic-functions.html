@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadratic Functions · MYP Year 5 · Unit 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea']},startup:{typeset:false}};</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script src="../components/components.js" defer></script>
+</head>
+<body>
+
+<unit-header unit="Unit 2" part="Part 2" title="Quadratic Functions"
+  soi="Quadratic functions take many forms, each exposing different features. Changing parameters changes the graph, and their equations unlock modelling, optimisation, and non-linear inequalities.">
+  <nav-item>1 · The Three Forms</nav-item>
+  <nav-item>2 · Parameters &amp; Characteristics</nav-item>
+  <nav-item>3 · Transformations</nav-item>
+  <nav-item>4 · Range, Composite &amp; Inverse</nav-item>
+  <nav-item>5 · Solving &amp; Discriminant</nav-item>
+  <nav-item>6 · Systems &amp; Finding Equations</nav-item>
+  <nav-item>7 · Modelling &amp; Optimisation</nav-item>
+  <nav-item>8 · Non-Linear Inequalities</nav-item>
+</unit-header>
+
+<main class="page">
+
+  <div id="s9">
+    <p class="section-marker">Explorer</p>
+    <h2 class="section-title">Quadratic Forms Explorer</h2>
+    <p style="font-size:0.94rem;color:var(--mid);margin:0 0 1.1rem;max-width:68ch;">Drag the sliders and <ib-term>investigate</ib-term> how the three forms, vertex, axis, roots, y-intercept and discriminant change together. Click a card to highlight that feature on the graph.</p>
+    <style>
+      :root {
+        --bg:#f3f5f8; --surface:#ffffff; --surface-2:#f7f9fb; --border:#dde3ea; --text:#0f1419;
+        --muted:#5c6774; --accent:#2563eb; --accent-soft:#e8effd; --curve:#2563eb; --vertex:#d9480f;
+        --root:#0b7285; --yint:#7048e8; --axis:#b9c2cd; --ghost:#cbd3dd; --grid:#eaeef3;
+        --grid-strong:#d9e0e8; --label-bg:rgba(255,255,255,.93); --radius:14px;
+        --shadow:0 1px 2px rgba(16,24,40,.05), 0 10px 30px -14px rgba(16,24,40,.28);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg:#0c1016; --surface:#141a22; --surface-2:#1a212b; --border:#29323e; --text:#e7edf4;
+          --muted:#98a5b4; --accent:#6ea8ff; --accent-soft:#16253f; --curve:#6ea8ff; --vertex:#ff9f6b;
+          --root:#4dd4c4; --yint:#b39dff; --axis:#46525f; --ghost:#39424e; --grid:#1c232d;
+          --grid-strong:#2a3340; --label-bg:rgba(20,26,34,.94);
+          --shadow:0 1px 2px rgba(0,0,0,.45), 0 14px 34px -18px rgba(0,0,0,.9);
+        }
+      }
+      #qfe{color-scheme:light dark;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;border-radius:var(--radius);padding:14px}
+      #qfe .qfe-wrap{display:grid;grid-template-columns:minmax(310px,372px) minmax(0,1fr);gap:14px;align-items:start}
+      @media (max-width:900px){#qfe .qfe-wrap{grid-template-columns:1fr}}
+      #qfe .panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+      #qfe .controls{padding:14px}
+      @media (min-width:901px){#qfe .controls{position:sticky;top:14px;max-height:calc(100vh - 28px);overflow-y:auto;scrollbar-width:thin}}
+      #qfe .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:4px;margin-bottom:12px}
+      #qfe .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;font-size:.82rem;font-weight:600;padding:7px 6px;border-radius:7px;cursor:pointer;transition:background .15s,color .15s}
+      #qfe .tab:hover{color:var(--text)}
+      #qfe .tab[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(16,24,40,.12)}
+      #qfe .tab:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+      #qfe .formula{margin:0 0 12px;padding:9px 11px;background:var(--accent-soft);border-radius:9px;font-size:.82rem;color:var(--text);overflow-x:auto;white-space:nowrap;text-align:center}
+      #qfe .ctrl{margin-bottom:14px}
+      #qfe .ctrl-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px}
+      #qfe .ctrl-head label{font-size:.84rem;color:var(--muted);cursor:pointer}
+      #qfe .ctrl-head label i{font-style:italic;font-weight:700;font-size:.95rem;color:var(--text)}
+      #qfe .ctrl-head output{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.84rem;font-weight:600;color:var(--accent);background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:1px 7px;min-width:46px;text-align:right}
+      #qfe .ctrl .note{margin:4px 0 0;font-size:.72rem;color:var(--muted);opacity:.85}
+      #qfe input[type="range"]{appearance:none;width:100%;height:22px;background:transparent;cursor:grab;display:block;margin:0}
+      #qfe input[type="range"]:active{cursor:grabbing}
+      #qfe input[type="range"]::-webkit-slider-runnable-track{height:5px;border-radius:3px;background:var(--grid-strong)}
+      #qfe input[type="range"]::-webkit-slider-thumb{appearance:none;width:17px;height:17px;margin-top:-6px;border-radius:50%;background:var(--accent);border:2.5px solid var(--surface);box-shadow:0 1px 3px rgba(16,24,40,.3)}
+      #qfe input[type="range"]::-moz-range-track{height:5px;border-radius:3px;background:var(--grid-strong)}
+      #qfe input[type="range"]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--accent);border:2.5px solid var(--surface);box-shadow:0 1px 3px rgba(16,24,40,.3)}
+      #qfe input[type="range"]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+      #qfe input[type="range"]:disabled{opacity:.35;cursor:not-allowed}
+      #qfe fieldset{border:1px solid var(--border);border-radius:10px;padding:10px 12px 12px;margin:0 0 12px;background:var(--surface-2)}
+      #qfe legend{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:0 5px}
+      #qfe .checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}
+      #qfe .check{display:flex;align-items:center;gap:7px;font-size:.82rem;cursor:pointer;user-select:none}
+      #qfe .check input{appearance:none;width:15px;height:15px;border:1.5px solid var(--border);border-radius:4px;background:var(--surface);cursor:pointer;position:relative;flex:none}
+      #qfe .check input:checked{background:var(--accent);border-color:var(--accent)}
+      #qfe .check input:checked::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+      #qfe .check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+      #qfe .warn{margin:6px 0 0;font-size:.76rem;color:var(--vertex);display:none}
+      #qfe .warn.show{display:block}
+      #qfe .stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+      #qfe .canvas-panel{padding:0;overflow:hidden}
+      #qfe .canvas-wrap{position:relative;width:100%;height:clamp(320px,56vh,620px);background:var(--surface)}
+      #qfe canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:crosshair}
+      #qfe .tools{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px}
+      #qfe .tools button{width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--border);border-radius:8px;background:var(--label-bg);color:var(--text);font:inherit;font-size:.95rem;line-height:1;cursor:pointer;backdrop-filter:blur(6px)}
+      #qfe .tools button:hover{border-color:var(--accent);color:var(--accent)}
+      #qfe .tools button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+      #qfe .readout{padding:14px;display:flex;flex-direction:column;gap:12px}
+      #qfe .eq-list{display:flex;flex-direction:column;gap:5px}
+      #qfe .eq{display:grid;grid-template-columns:78px 1fr;gap:10px;align-items:center;padding:8px 10px;border-radius:9px;border:1px solid transparent;background:var(--surface-2);font-size:.84rem;overflow-x:auto}
+      #qfe .eq.active{border-color:var(--accent);background:var(--accent-soft)}
+      #qfe .eq-label{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+      #qfe .eq.active .eq-label{color:var(--accent)}
+      #qfe .eq-body{white-space:nowrap;min-width:0}
+      #qfe .eq .none{color:var(--muted);font-style:italic;font-size:.8rem}
+      #qfe .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:8px}
+      #qfe .fact{background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:7px 10px;transition:border-color .15s,background .15s,box-shadow .15s}
+      #qfe .fact[data-hl]{cursor:pointer}
+      #qfe .fact[data-hl]:hover{border-color:var(--accent)}
+      #qfe .fact.active{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent) inset}
+      #qfe .fact .k{display:block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+      #qfe .fact .v{display:block;font-size:.84rem;word-break:break-word}
+      #qfe .fact.v-accent .v{color:var(--accent)}
+      #qfe .fact.v-vertex .v{color:var(--vertex)}
+      #qfe .fact.v-root .v{color:var(--root)}
+      #qfe .fact.v-yint .v{color:var(--yint)}
+      #qfe .hint{margin:0;font-size:.74rem;color:var(--muted);text-align:center;opacity:.8}
+      #qfe mjx-container{line-height:1 !important}
+      #qfe mjx-container[display="false"]{vertical-align:middle}
+    </style>
+    <div id="qfe">
+      <div class="qfe-wrap">
+        <section class="panel controls" aria-label="Controls">
+          <div class="tabs" role="tablist" aria-label="Quadratic form">
+            <button class="tab" role="tab" data-mode="standard" aria-selected="true">Standard</button>
+            <button class="tab" role="tab" data-mode="factored" aria-selected="false">Factored</button>
+            <button class="tab" role="tab" data-mode="vertex" aria-selected="false">Vertex</button>
+          </div>
+          <p class="formula" id="formulaHint">\(f(x) = ax^2 + bx + c\)</p>
+          <div id="sliders"></div>
+          <p class="warn" id="warnBox"></p>
+          <fieldset>
+            <legend>Show</legend>
+            <div class="checks">
+              <label class="check"><input type="checkbox" id="cb-vertex" checked> Vertex</label>
+              <label class="check"><input type="checkbox" id="cb-axis" checked> Axis</label>
+              <label class="check"><input type="checkbox" id="cb-roots" checked> x-intercepts</label>
+              <label class="check"><input type="checkbox" id="cb-yint" checked> y-intercept</label>
+              <label class="check"><input type="checkbox" id="cb-ghost"> y = x² ghost</label>
+              <label class="check"><input type="checkbox" id="cb-grid" checked> Grid</label>
+            </div>
+          </fieldset>
+        </section>
+        <section class="stage">
+          <div class="panel canvas-panel">
+            <div class="canvas-wrap">
+              <canvas id="graph"></canvas>
+              <div class="tools">
+                <button type="button" data-act="in" title="Zoom in" aria-label="Zoom in">+</button>
+                <button type="button" data-act="out" title="Zoom out" aria-label="Zoom out">−</button>
+                <button type="button" data-act="reset" title="Reset view" aria-label="Reset view">⟲</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel readout">
+            <div class="eq-list" id="eqList"></div>
+            <div class="facts" id="facts"></div>
+            <p class="hint">Click a card to highlight that feature on the graph</p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      (() => {
+        'use strict';
+
+        const clamp   = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+        const round2  = v => Math.round(v * 100) / 100;
+        const isZero  = v => Math.abs(v) < 1e-9;
+        const MINUS   = '\u2212';
+
+        function fmt(v, dp = 2) {
+          if (!isFinite(v)) return '\u2014';
+          let r = Number(v.toFixed(dp));
+          if (Object.is(r, -0)) r = 0;
+          return String(r);
+        }
+
+        const S = {
+          a: 1, h: 1, k: -4,
+          mode: 'standard',
+          show: { vertex: true, axis: true, roots: true, yint: true, ghost: false, grid: true },
+          view: { cx: 0, cy: 0, scale: 44 },
+          highlight: null,
+          pulse: 0
+        };
+
+        function derived() {
+          const a = S.a, h = S.h, k = S.k;
+          const b = -2 * a * h;
+          const c = a * h * h + k;
+          const disc = -4 * a * k;
+          const hasReal = disc >= -1e-9;
+          let r1 = null, r2 = null;
+          if (hasReal) {
+            const s = Math.sqrt(Math.max(0, -k / a));
+            r1 = h - s;
+            r2 = h + s;
+          }
+          return { a, b, c, h, k, disc, hasReal, r1, r2 };
+        }
+
+        function laNum(v) { return fmt(v); }
+
+        function laQuad(a, b, c) {
+          let s = '';
+          if (isZero(a - 1)) s += 'x^2';
+          else if (isZero(a + 1)) s += '-x^2';
+          else s += laNum(a) + 'x^2';
+          if (!isZero(b)) {
+            s += b > 0 ? ' + ' : ' - ';
+            const ab = Math.abs(b);
+            s += isZero(ab - 1) ? 'x' : laNum(ab) + 'x';
+          }
+          if (!isZero(c)) {
+            s += c > 0 ? ' + ' : ' - ';
+            s += laNum(Math.abs(c));
+          }
+          return 'f(x) = ' + s;
+        }
+
+        function laFactor(x0) {
+          if (isZero(x0)) return 'x';
+          return x0 < 0 ? '(x + ' + laNum(Math.abs(x0)) + ')' : '(x - ' + laNum(x0) + ')';
+        }
+
+        function laFactored(a, p, q) {
+          let s = '';
+          if (isZero(a - 1)) s += '';
+          else if (isZero(a + 1)) s += '-';
+          else s += laNum(a);
+          return 'f(x) = ' + s + laFactor(p) + laFactor(q);
+        }
+
+        function laVertex(a, h, k) {
+          let s = '';
+          if (isZero(a - 1)) s += '';
+          else if (isZero(a + 1)) s += '-';
+          else s += laNum(a);
+          if (isZero(h)) s += 'x^2';
+          else if (h < 0) s += '(x + ' + laNum(Math.abs(h)) + ')^2';
+          else s += '(x - ' + laNum(h) + ')^2';
+          if (!isZero(k)) s += k > 0 ? ' + ' + laNum(k) : ' - ' + laNum(Math.abs(k));
+          return 'f(x) = ' + s;
+        }
+
+        const DEFS = {
+          standard: [
+            { k: 'a', sym: 'a', min: -3,  max: 3,  note: 'direction & width' },
+            { k: 'b', sym: 'b', min: -14, max: 14, note: 'shifts the axis of symmetry' },
+            { k: 'c', sym: 'c', min: -14, max: 14, note: 'the y-intercept' }
+          ],
+          factored: [
+            { k: 'a', sym: 'a', min: -3,  max: 3,  note: 'direction & width' },
+            { k: 'p', sym: 'p', min: -10, max: 10, note: 'first x-intercept' },
+            { k: 'q', sym: 'q', min: -10, max: 10, note: 'second x-intercept' }
+          ],
+          vertex: [
+            { k: 'a', sym: 'a', min: -3,  max: 3,  note: 'direction & width' },
+            { k: 'h', sym: 'h', min: -10, max: 10, note: 'horizontal shift' },
+            { k: 'k', sym: 'k', min: -10, max: 10, note: 'vertical shift (max/min value)' }
+          ]
+        };
+        const HINTS = {
+          standard: '\\(f(x) = ax^2 + bx + c\\)',
+          factored: '\\(f(x) = a(x - p)(x - q)\\)',
+          vertex:   '\\(f(x) = a(x - h)^2 + k\\)'
+        };
+
+        const canvas     = document.getElementById('graph');
+        const ctx        = canvas.getContext('2d');
+        const slidersEl  = document.getElementById('sliders');
+        const eqListEl   = document.getElementById('eqList');
+        const factsEl    = document.getElementById('facts');
+        const hintEl     = document.getElementById('formulaHint');
+        const warnEl     = document.getElementById('warnBox');
+
+        let W = 1, H = 1;
+        let C = {};
+
+        const FONT = 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+        const MONO = 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+
+        let typesetScheduled = false;
+        function scheduleTypeset() {
+          if (typesetScheduled) return;
+          typesetScheduled = true;
+          requestAnimationFrame(() => {
+            typesetScheduled = false;
+            if (window.MathJax && window.MathJax.typesetPromise) {
+              window.MathJax.typesetPromise([eqListEl, factsEl, hintEl]).catch(() => {});
+            }
+          });
+        }
+
+        function refreshColors() {
+          const cs = getComputedStyle(document.documentElement);
+          const g = n => cs.getPropertyValue(n).trim();
+          C = {
+            bg:         g('--surface'),
+            grid:       g('--grid'),
+            gridStrong: g('--grid-strong'),
+            text:       g('--text'),
+            muted:      g('--muted'),
+            curve:      g('--curve'),
+            vertex:     g('--vertex'),
+            root:       g('--root'),
+            yint:       g('--yint'),
+            axis:       g('--axis'),
+            ghost:      g('--ghost'),
+            accent:     g('--accent'),
+            labelBg:    g('--label-bg')
+          };
+        }
+
+        const X  = x  => W / 2 + (x - S.view.cx) * S.view.scale;
+        const Y  = y  => H / 2 - (y - S.view.cy) * S.view.scale;
+        const iX = px => S.view.cx + (px - W / 2) / S.view.scale;
+        const iY = py => S.view.cy - (py - H / 2) / S.view.scale;
+
+        function niceStep(scale) {
+          const raw = 64 / scale;
+          const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+          const n = raw / mag;
+          let m;
+          if (n <= 1.5) m = 1;
+          else if (n <= 3) m = 2;
+          else if (n <= 7) m = 5;
+          else m = 10;
+          return m * mag;
+        }
+
+        function labelFor(v, step) {
+          const dp = step < 1 ? (step < 0.1 ? 2 : 1) : 0;
+          let r = Number(v.toFixed(dp));
+          if (Object.is(r, -0)) r = 0;
+          return String(r);
+        }
+
+        function resize() {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          const rect = canvas.getBoundingClientRect();
+          W = Math.max(1, Math.round(rect.width));
+          H = Math.max(1, Math.round(rect.height));
+          canvas.width  = Math.round(W * dpr);
+          canvas.height = Math.round(H * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          render();
+        }
+
+        function rr(x, y, w, h, r) {
+          const rad = Math.min(r, w / 2, h / 2);
+          ctx.beginPath();
+          ctx.moveTo(x + rad, y);
+          ctx.arcTo(x + w, y,     x + w, y + h, rad);
+          ctx.arcTo(x + w, y + h, x,     y + h, rad);
+          ctx.arcTo(x,     y + h, x,     y,     rad);
+          ctx.arcTo(x,     y,     x + w, y,     rad);
+          ctx.closePath();
+        }
+
+        function dot(px, py, color, r = 5.5) {
+          ctx.beginPath();
+          ctx.arc(px, py, r, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.fill();
+          ctx.lineWidth = 2.5;
+          ctx.strokeStyle = C.bg;
+          ctx.stroke();
+        }
+
+        function glowRing(px, py, r, color, pulse) {
+          ctx.save();
+          ctx.globalAlpha = 0.55 - pulse * 0.35;
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(px, py, r + 5 + pulse * 6, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        function chip(text, px, py, color, side) {
+          ctx.font = '600 11.5px ' + FONT;
+          const w = ctx.measureText(text).width + 13;
+          const h = 19;
+          let x = side === 'left' ? px - w - 11 : px + 11;
+          let y = py - h / 2;
+          x = clamp(x, 3, W - w - 3);
+          y = clamp(y, 3, H - h - 3);
+
+          rr(x, y, w, h, 6);
+          ctx.fillStyle = C.labelBg;
+          ctx.fill();
+          ctx.save();
+          ctx.globalAlpha = 0.5;
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = color;
+          ctx.stroke();
+          ctx.restore();
+
+          ctx.fillStyle = color;
+          ctx.textAlign = 'left';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(text, x + 6.5, y + h / 2 + 0.5);
+        }
+        function draw(d) {
+          ctx.clearRect(0, 0, W, H);
+          ctx.fillStyle = C.bg;
+          ctx.fillRect(0, 0, W, H);
+
+          if (S.show.grid) drawGrid();
+          else drawAxesOnly();
+
+          if (S.show.ghost) drawGhost();
+
+          if (S.highlight === 'curve') {
+            ctx.save();
+            ctx.globalAlpha = 0.22 + S.pulse * 0.25;
+            drawCurve(d, C.accent, 11);
+            ctx.restore();
+          }
+
+          drawCurve(d, C.curve, 2.6);
+          drawFeatures(d);
+        }
+
+        function drawGrid() {
+          const step = niceStep(S.view.scale);
+          const left = iX(0), right = iX(W), top = iY(0), bottom = iY(H);
+
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = C.grid;
+          ctx.beginPath();
+          const nx0 = Math.ceil(left / step), nx1 = Math.floor(right / step);
+          for (let i = nx0; i <= nx1; i++) {
+            const px = Math.round(X(i * step)) + 0.5;
+            ctx.moveTo(px, 0); ctx.lineTo(px, H);
+          }
+          const ny0 = Math.ceil(bottom / step), ny1 = Math.floor(top / step);
+          for (let j = ny0; j <= ny1; j++) {
+            const py = Math.round(Y(j * step)) + 0.5;
+            ctx.moveTo(0, py); ctx.lineTo(W, py);
+          }
+          ctx.stroke();
+
+          drawAxesOnly();
+
+          ctx.font = '11px ' + MONO;
+          ctx.fillStyle = C.muted;
+
+          const axisYpx = Y(0);
+          const labelY = clamp(axisYpx + 4, 2, H - 16);
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'top';
+          for (let i = nx0; i <= nx1; i++) {
+            if (i === 0) continue;
+            const v = i * step;
+            const px = X(v);
+            if (px < 14 || px > W - 14) continue;
+            ctx.fillText(labelFor(v, step), px, labelY);
+          }
+
+          const axisXpx = X(0);
+          const leftSide = axisXpx < W - 60;
+          const labelX = clamp(axisXpx + (leftSide ? 5 : -5), 4, W - 4);
+          ctx.textAlign = leftSide ? 'left' : 'right';
+          ctx.textBaseline = 'middle';
+          for (let j = ny0; j <= ny1; j++) {
+            if (j === 0) continue;
+            const v = j * step;
+            const py = Y(v);
+            if (py < 12 || py > H - 12) continue;
+            ctx.fillText(labelFor(v, step), labelX, py);
+          }
+
+          if (axisXpx > 10 && axisXpx < W - 10 && axisYpx > 10 && axisYpx < H - 10) {
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'top';
+            ctx.fillText('0', axisXpx - 4, axisYpx + 4);
+          }
+        }
+
+        function drawAxesOnly() {
+          const ax = Math.round(X(0)) + 0.5;
+          const ay = Math.round(Y(0)) + 0.5;
+          ctx.lineWidth = 1.4;
+          ctx.strokeStyle = C.axis;
+          ctx.beginPath();
+          if (ay > 0 && ay < H) { ctx.moveTo(0, ay); ctx.lineTo(W, ay); }
+          if (ax > 0 && ax < W) { ctx.moveTo(ax, 0); ctx.lineTo(ax, H); }
+          ctx.stroke();
+        }
+
+        function drawGhost() {
+          ctx.save();
+          ctx.setLineDash([5, 5]);
+          ctx.lineWidth = 1.6;
+          ctx.strokeStyle = C.ghost;
+          ctx.beginPath();
+          let pen = false;
+          for (let px = 0; px <= W; px++) {
+            const x = iX(px);
+            const py = clamp(Y(x * x), -1e4, H + 1e4);
+            if (!pen) { ctx.moveTo(px, py); pen = true; } else ctx.lineTo(px, py);
+          }
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        function drawCurve(d, color, width) {
+          const { a, b, c } = d;
+          ctx.save();
+          ctx.lineWidth = width;
+          ctx.lineJoin = 'round';
+          ctx.lineCap = 'round';
+          ctx.strokeStyle = color;
+          ctx.beginPath();
+          let pen = false;
+          for (let px = 0; px <= W; px++) {
+            const x = iX(px);
+            const py = clamp(Y(a * x * x + b * x + c), -1e4, H + 1e4);
+            if (!pen) { ctx.moveTo(px, py); pen = true; }
+            else ctx.lineTo(px, py);
+          }
+          ctx.stroke();
+          ctx.restore();
+        }
+        function drawFeatures(d) {
+          const hl = S.highlight;
+          const pulse = S.pulse || 0;
+
+          const axisActive = hl === 'axis';
+          if (S.show.axis || axisActive) {
+            const px = X(d.h);
+            if (px > -50 && px < W + 50) {
+              ctx.save();
+              ctx.setLineDash([7, 6]);
+              ctx.lineWidth = axisActive ? 2.6 : 1.5;
+              ctx.strokeStyle = axisActive ? C.accent : C.vertex;
+              ctx.globalAlpha = axisActive ? 0.95 : 0.5;
+              ctx.beginPath();
+              ctx.moveTo(px, 0); ctx.lineTo(px, H);
+              ctx.stroke();
+              ctx.restore();
+            }
+          }
+
+          const rootsActive = hl === 'roots' || hl === 'disc';
+          if ((S.show.roots || rootsActive) && d.hasReal) {
+            const same = Math.abs(d.r1 - d.r2) < 1e-6;
+            const list = same
+              ? [{ x: d.r1, label: '(' + fmt(d.r1) + ', 0)' }]
+              : [
+                  { x: d.r1, label: '(' + fmt(d.r1) + ', 0)' },
+                  { x: d.r2, label: '(' + fmt(d.r2) + ', 0)' }
+                ];
+            const r = rootsActive ? 5 + pulse * 3 : 5;
+
+            list.forEach((p, i) => {
+              const px = X(p.x), py = Y(0);
+              if (px < -60 || px > W + 60) return;
+              if (rootsActive) glowRing(px, py, r, C.accent, pulse);
+              dot(px, py, rootsActive ? C.accent : C.root, r);
+              const side = list.length === 1 ? 'right' : (i === 0 ? 'right' : 'left');
+              chip(p.label, px, py + (i === 0 ? 22 : (list.length === 1 ? 22 : -22)), rootsActive ? C.accent : C.root, side);
+            });
+          }
+
+          const yintActive = hl === 'yint';
+          if (S.show.yint || yintActive) {
+            const px = X(0), py = Y(d.c);
+            if (py > -60 && py < H + 60) {
+              const r = yintActive ? 5 + pulse * 3 : 5;
+              if (yintActive) glowRing(px, py, r, C.accent, pulse);
+              dot(px, py, yintActive ? C.accent : C.yint, r);
+              chip('(0, ' + fmt(d.c) + ')', px, py, yintActive ? C.accent : C.yint, 'left');
+            }
+          }
+
+          const vertexActive = hl === 'vertex';
+          if (S.show.vertex || vertexActive) {
+            const px = X(d.h), py = Y(d.k);
+            if (px > -60 && px < W + 60 && py > -60 && py < H + 60) {
+              const r = vertexActive ? 6.5 + pulse * 3 : 6.5;
+              if (vertexActive) glowRing(px, py, r, C.accent, pulse);
+              dot(px, py, vertexActive ? C.accent : C.vertex, r);
+              chip('(' + fmt(d.h) + ', ' + fmt(d.k) + ')', px, py, vertexActive ? C.accent : C.vertex, 'right');
+            }
+          }
+        }
+        function updateReadout(d) {
+          const rows = [
+            { m: 'standard', name: 'Standard', tex: laQuad(d.a, d.b, d.c) },
+            { m: 'factored', name: 'Factored', tex: d.hasReal ? laFactored(d.a, d.r1, d.r2) : null },
+            { m: 'vertex',   name: 'Vertex',   tex: laVertex(d.a, d.h, d.k) }
+          ];
+
+          eqListEl.innerHTML = rows.map(r => {
+            const active = S.mode === r.m ? ' active' : '';
+            const body = r.tex
+              ? '\\(' + r.tex + '\\)'
+              : '<span class="none">no real linear factors</span>';
+            return '<div class="eq' + active + '">' +
+                     '<span class="eq-label">' + r.name + '</span>' +
+                     '<span class="eq-body">' + body + '</span>' +
+                   '</div>';
+          }).join('');
+
+          const facts = [];
+
+          facts.push({
+            k: 'Direction',
+            v: d.a > 0 ? 'Opens up · minimum' : 'Opens down · maximum',
+            hl: 'curve'
+          });
+
+          facts.push({
+            k: 'Vertex',
+            v: '\\(' + '(' + fmt(d.h) + ',\\ ' + fmt(d.k) + ')' + '\\)',
+            c: 'v-vertex',
+            hl: 'vertex'
+          });
+
+          facts.push({
+            k: 'Axis of symmetry',
+            v: '\\(x = ' + fmt(d.h) + '\\)',
+            c: 'v-vertex',
+            hl: 'axis'
+          });
+
+          facts.push({
+            k: 'y-intercept',
+            v: '\\((0,\\ ' + fmt(d.c) + ')\\)',
+            c: 'v-yint',
+            hl: 'yint'
+          });
+
+          if (d.hasReal) {
+            const same = Math.abs(d.r1 - d.r2) < 1e-6;
+            const vTex = same
+              ? '\\(' + '(' + fmt(d.r1) + ',\\ 0)' + '\\)'
+              : '\\(' + '(' + fmt(d.r1) + ',\\ 0),\\ (' + fmt(d.r2) + ',\\ 0)' + '\\)';
+            facts.push({
+              k: same ? 'x-intercept (double)' : 'x-intercepts',
+              v: vTex,
+              c: 'v-root',
+              hl: 'roots'
+            });
+          } else {
+            facts.push({
+              k: 'x-intercepts',
+              v: '<span class="none">none — no real roots</span>',
+              c: 'v-root'
+            });
+          }
+
+          let discText;
+          if (d.disc > 1e-9) discText = 'two distinct real roots';
+          else if (d.disc < -1e-9) discText = 'no real roots';
+          else discText = 'one repeated root';
+
+          facts.push({
+            k: 'Discriminant',
+            v: '\\(\\Delta = ' + fmt(d.disc) + '\\) <span style="opacity:.75;font-size:.85em">· ' + discText + '</span>',
+            hl: 'disc'
+          });
+
+          const rngTex = d.a > 0
+            ? '\\(f(x) \\geq ' + fmt(d.k) + '\\)'
+            : '\\(f(x) \\leq ' + fmt(d.k) + '\\)';
+          facts.push({
+            k: 'Range',
+            v: rngTex,
+            c: 'v-accent',
+            hl: 'vertex'
+          });
+
+          factsEl.innerHTML = facts.map(f => {
+            const hl = f.hl || '';
+            const activeCls = (hl && S.highlight === hl) ? ' active' : '';
+            const dataAttr = hl ? ' data-hl="' + hl + '"' : '';
+            return '<div class="fact ' + (f.c || '') + activeCls + '"' + dataAttr + '>' +
+                     '<span class="k">' + f.k + '</span>' +
+                     '<span class="v">' + f.v + '</span>' +
+                   '</div>';
+          }).join('');
+
+          scheduleTypeset();
+        }
+        function buildSliders() {
+          const defs = DEFS[S.mode];
+          slidersEl.innerHTML = defs.map(d =>
+            '<div class="ctrl" data-key="' + d.k + '">' +
+              '<div class="ctrl-head">' +
+                '<label for="s-' + d.k + '"><i>' + d.sym + '</i></label>' +
+                '<output id="o-' + d.k + '"></output>' +
+              '</div>' +
+              '<input type="range" id="s-' + d.k + '" min="' + d.min + '" max="' + d.max +
+                '" step="any" value="0" aria-label="' + d.sym + '">' +
+              '<p class="note">' + d.note + '</p>' +
+            '</div>'
+          ).join('');
+
+          defs.forEach(d => {
+            const inp = document.getElementById('s-' + d.k);
+            inp.addEventListener('input', () => onSlide(d.k, parseFloat(inp.value)));
+          });
+
+          hintEl.textContent = HINTS[S.mode];
+          scheduleTypeset();
+        }
+
+        function updateOutputs() {
+          slidersEl.querySelectorAll('.ctrl').forEach(el => {
+            const inp = el.querySelector('input');
+            const out = el.querySelector('output');
+            if (inp && out) out.textContent = fmt(parseFloat(inp.value));
+          });
+        }
+
+        function valuesForMode(d) {
+          if (S.mode === 'standard') return { a: round2(d.a), b: round2(d.b), c: round2(d.c) };
+          if (S.mode === 'vertex')   return { a: round2(d.a), h: round2(d.h), k: round2(d.k) };
+          return {
+            a: round2(d.a),
+            p: round2(d.hasReal ? d.r1 : d.h),
+            q: round2(d.hasReal ? d.r2 : d.h)
+          };
+        }
+
+        function syncControls(full) {
+          const d = derived();
+
+          if (S.mode === 'factored') {
+            const aEl = document.getElementById('s-a');
+            const pEl = document.getElementById('s-p');
+            const qEl = document.getElementById('s-q');
+            if (aEl) aEl.value = String(round2(S.a));
+            if (pEl && qEl) {
+              const wasDisabled = pEl.disabled;
+              const dis = !d.hasReal;
+              pEl.disabled = dis;
+              qEl.disabled = dis;
+              if (full || (wasDisabled && !dis)) {
+                pEl.value = String(round2(d.r1));
+                qEl.value = String(round2(d.r2));
+              }
+            }
+          } else {
+            const vals = valuesForMode(d);
+            DEFS[S.mode].forEach(def => {
+              const el = document.getElementById('s-' + def.k);
+              if (el) el.value = String(vals[def.k]);
+            });
+          }
+
+          updateOutputs();
+
+          if (S.mode === 'factored' && !d.hasReal) {
+            warnEl.textContent = 'This parabola has no real x-intercepts — p and q are locked. Change a, or switch to Standard/Vertex and adjust until the curve crosses the x-axis.';
+            warnEl.classList.add('show');
+          } else {
+            warnEl.classList.remove('show');
+          }
+        }
+
+        function readModeParams() {
+          const p = {};
+          DEFS[S.mode].forEach(def => {
+            const el = document.getElementById('s-' + def.k);
+            if (el) p[def.k] = round2(parseFloat(el.value));
+          });
+          return p;
+        }
+
+        function onSlide(key, raw) {
+          const el = document.getElementById('s-' + key);
+          let v = round2(raw);
+          if (key === 'a' && Math.abs(v) < 0.1) v = v < 0 ? -0.1 : 0.1;
+          if (el) el.value = String(v);
+
+          const P = readModeParams();
+          P[key] = v;
+
+          if (S.mode === 'standard') {
+            const a = P.a, b = P.b, c = P.c;
+            if (Math.abs(a) < 1e-9) return;
+            S.a = a;
+            S.h = -b / (2 * a);
+            S.k = c - a * S.h * S.h;
+          } else if (S.mode === 'vertex') {
+            S.a = P.a; S.h = P.h; S.k = P.k;
+          } else {
+            const d = derived();
+            S.a = P.a;
+            if (d.hasReal) {
+              const p0 = P.p, q0 = P.q;
+              S.h = (p0 + q0) / 2;
+              S.k = S.a * (S.h - p0) * (S.h - q0);
+            }
+          }
+
+          render();
+        }
+
+        function setMode(mode) {
+          if (mode === S.mode) return;
+          S.mode = mode;
+          document.querySelectorAll('.tab').forEach(t => {
+            t.setAttribute('aria-selected', String(t.dataset.mode === mode));
+          });
+          buildSliders();
+          syncControls(true);
+          render();
+        }
+        function render() {
+          const d = derived();
+          draw(d);
+          updateReadout(d);
+          syncControls(false);
+        }
+
+        function tick() {
+          if (S.highlight) {
+            S.pulse = (Math.sin(performance.now() / 320) + 1) / 2;
+            draw(derived());
+          }
+          requestAnimationFrame(tick);
+        }
+
+        factsEl.addEventListener('click', e => {
+          const card = e.target.closest('.fact');
+          if (!card || !card.dataset.hl) return;
+          const key = card.dataset.hl;
+          S.highlight = (S.highlight === key) ? null : key;
+          S.pulse = 0;
+
+          factsEl.querySelectorAll('.fact').forEach(c => {
+            c.classList.toggle('active', c.dataset.hl === S.highlight);
+          });
+
+          draw(derived());
+        });
+
+        function attachInteraction() {
+          let dragging = false;
+          let lastX = 0, lastY = 0;
+
+          canvas.addEventListener('pointerdown', e => {
+            dragging = true;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            canvas.setPointerCapture(e.pointerId);
+            canvas.style.cursor = 'grabbing';
+          });
+
+          canvas.addEventListener('pointermove', e => {
+            if (!dragging) return;
+            const dx = e.clientX - lastX;
+            const dy = e.clientY - lastY;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            S.view.cx -= dx / S.view.scale;
+            S.view.cy += dy / S.view.scale;
+            draw(derived());
+          });
+
+          const endDrag = e => {
+            dragging = false;
+            canvas.style.cursor = 'crosshair';
+            try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
+          };
+          canvas.addEventListener('pointerup', endDrag);
+          canvas.addEventListener('pointercancel', endDrag);
+
+          canvas.addEventListener('wheel', e => {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
+            const wx = iX(mx), wy = iY(my);
+
+            const factor = Math.exp(-e.deltaY * 0.0016);
+            S.view.scale = clamp(S.view.scale * factor, 4, 400);
+            S.view.cx = wx - (mx - W / 2) / S.view.scale;
+            S.view.cy = wy + (my - H / 2) / S.view.scale;
+
+            draw(derived());
+          }, { passive: false });
+
+          canvas.addEventListener('dblclick', () => {
+            S.view.cx = 0; S.view.cy = 0; S.view.scale = 44;
+            draw(derived());
+          });
+
+          document.querySelectorAll('.tools button').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const act = btn.dataset.act;
+              if (act === 'in')  S.view.scale = clamp(S.view.scale * 1.25, 4, 400);
+              if (act === 'out') S.view.scale = clamp(S.view.scale / 1.25, 4, 400);
+              if (act === 'reset') { S.view.cx = 0; S.view.cy = 0; S.view.scale = 44; }
+              draw(derived());
+            });
+          });
+        }
+
+        function attachUI() {
+          document.querySelectorAll('.tab').forEach(t => {
+            t.addEventListener('click', () => setMode(t.dataset.mode));
+          });
+
+          const bind = (id, key) => {
+            const el = document.getElementById(id);
+            el.addEventListener('change', () => {
+              S.show[key] = el.checked;
+              draw(derived());
+            });
+          };
+          bind('cb-vertex', 'vertex');
+          bind('cb-axis',   'axis');
+          bind('cb-roots',  'roots');
+          bind('cb-yint',   'yint');
+          bind('cb-ghost',  'ghost');
+          bind('cb-grid',   'grid');
+        }
+
+        function boot() {
+          refreshColors();
+          attachUI();
+          attachInteraction();
+          buildSliders();
+          syncControls(true);
+          resize();
+          requestAnimationFrame(tick);
+
+          const mq = window.matchMedia('(prefers-color-scheme: dark)');
+          if (mq.addEventListener) {
+            mq.addEventListener('change', () => { refreshColors(); render(); });
+          }
+
+          if ('ResizeObserver' in window) {
+            new ResizeObserver(() => resize()).observe(canvas.parentElement);
+          } else {
+            window.addEventListener('resize', resize);
+          }
+          window.addEventListener('resize', resize);
+        }
+
+        boot();
+      })();
+    </script>
+  </div>
+
+  <div id="s1">
+    <p class="section-marker">Section 1</p>
+    <h2 class="section-title">The Three Forms of a Quadratic Function</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>Every quadratic function can be written in three equivalent forms. Each form reveals different features of the parabola, and converting between them is a core skill.</p>
+        </div>
+
+        <math-box type="definition" title="Standard form">
+          <span slot="body">
+            <p>$$f(x) = ax^2 + bx + c$$</p>
+            <ul>
+              <li>$c$ = the $y$-intercept.</li>
+              <li>$a$ = direction and width.</li>
+              <li>Axis of symmetry: $x = -\frac{b}{2a}$.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <math-box type="definition" title="Factored form">
+          <span slot="body">
+            <p>$$f(x) = a(x - p)(x - q)$$</p>
+            <ul>
+              <li>$p, q$ = the $x$-intercepts.</li>
+              <li>Axis of symmetry: $x = \frac{p + q}{2}$.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <math-box type="definition" title="Vertex form">
+          <span slot="body">
+            <p>$$f(x) = a(x - h)^2 + k$$</p>
+            <ul>
+              <li>$(h, k)$ = the vertex (max or min).</li>
+              <li>Axis of symmetry: $x = h$.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Converting between forms</strong></p>
+          <table class="cmp-table">
+            <tr><th>Conversion</th><th>Method</th></tr>
+            <tr><td>Standard → Factored</td><td>Factorise</td></tr>
+            <tr><td>Standard → Vertex</td><td>Complete the square</td></tr>
+            <tr><td>Factored → Standard</td><td>Expand</td></tr>
+            <tr><td>Vertex → Standard</td><td>Expand</td></tr>
+          </table>
+          <p>Example: $x^2 - 6x + 5 = (x - 3)^2 - 4$.</p>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Write $f(x) = x^2 + 8x + 7$ in factored and vertex form.</li>
+            <li>From factored form $f(x) = 2(x - 1)(x + 3)$, <ib-term>state</ib-term> the $x$-intercepts and the axis of symmetry.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Why three forms?">
+          <p>Factored form answers "where does it cross the axis?", vertex form answers "where is its maximum or minimum?", and standard form is what algebra normally produces.</p>
+        </side-note>
+        <side-note label="$h$ sign trap">
+          <p>In $(x - h)^2$, the vertex's $x$-coordinate is $+h$: $(x - 4)^2$ has vertex at $x = 4$, not $-4$.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s2">
+    <p class="section-marker">Section 2</p>
+    <h2 class="section-title">Interpreting Parameters &amp; Graphing Characteristics</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>Parameter $a$ controls the shape and direction of the parabola:</p>
+          <table class="cmp-table">
+            <tr><th>Value of $a$</th><th>Shape</th></tr>
+            <tr><td>$a > 0$</td><td>Opens upward, minimum</td></tr>
+            <tr><td>$a < 0$</td><td>Opens downward, maximum</td></tr>
+            <tr><td>$|a| > 1$</td><td>Narrower than $y = x^2$</td></tr>
+            <tr><td>$0 < |a| < 1$</td><td>Wider than $y = x^2$</td></tr>
+          </table>
+          <p>Other parameters: $c$ is the $y$-intercept $(0, c)$; $p, q$ are the $x$-intercepts $(p, 0)$, $(q, 0)$; $h$ is the horizontal shift; $k$ is the vertical shift; the vertex is $(h, k)$.</p>
+        </div>
+
+        <math-box type="theorem" title="Characteristics of a parabola">
+          <span slot="body">
+            <table class="cmp-table">
+              <tr><th>Feature</th><th>How to find</th><th>Interpretation</th></tr>
+              <tr><td>Direction</td><td>Sign of $a$</td><td>$a > 0$ up, $a < 0$ down</td></tr>
+              <tr><td>Vertex</td><td>$x = -\frac{b}{2a}$, or $(h, k)$</td><td>Max/min point</td></tr>
+              <tr><td>Axis of symmetry</td><td>$x = -\frac{b}{2a}$, $\frac{p+q}{2}$, or $h$</td><td>Vertical line through vertex</td></tr>
+              <tr><td>$y$-intercept</td><td>Set $x = 0$</td><td>$(0, c)$ in standard form</td></tr>
+              <tr><td>$x$-intercepts</td><td>Set $f(x) = 0$</td><td>Roots / zeros</td></tr>
+              <tr><td>Maximum / minimum</td><td>$y$-value of vertex</td><td>Max if $a < 0$, min if $a > 0$</td></tr>
+              <tr><td>Domain</td><td>Usually all real $x$</td><td>Allowed $x$-values</td></tr>
+              <tr><td>Range</td><td>Vertex and direction</td><td>Resulting $y$-values</td></tr>
+            </table>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Full characterisation of a parabola" number="1">
+          <span slot="body">
+            <p>Graph $f(x) = x^2 - 4x + 3$.</p>
+            <ul>
+              <li>$a = 1 > 0$: opens upward.</li>
+              <li>Axis: $x = 2$.</li>
+              <li>Vertex: $f(2) = -1$, so $(2, -1)$.</li>
+              <li>$y$-intercept: $(0, 3)$.</li>
+              <li>$x$-intercepts: $(1, 0)$, $(3, 0)$.</li>
+              <li>Minimum value: $-1$.</li>
+              <li>Range: $f(x) \ge -1$.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Graph of Example 1 — axis x = 2, vertex (2, −1), roots (1, 0), (3, 0), y-intercept (0, 3).</p>
+          <div id="b1" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Sketching routes</strong></p>
+          <p><strong>From vertex form:</strong> plot $(h, k)$, draw axis $x = h$, find $y$-intercept, use symmetry, find $x$-intercepts, sketch.</p>
+          <p><strong>From standard form:</strong> axis $x = -\frac{b}{2a}$, substitute to find vertex, $y$-intercept $(0, c)$, factorise or use the formula for $x$-intercepts, sketch.</p>
+          <p><strong>From factored form:</strong> plot $(p, 0)$ and $(q, 0)$, axis $x = \frac{p+q}{2}$, substitute the midpoint for the vertex, find $y$-intercept, sketch.</p>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>For $f(x) = -x^2 + 6x - 5$, state direction, vertex, intercepts, maximum value, and range.</li>
+            <li>Which parabola is narrower: $y = 3x^2$ or $y = 0.5x^2$? <ib-term>justify</ib-term>.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Vertex = where axis meets curve">
+          <p>The vertex always lies on the axis of symmetry. Once you have the axis, substitute its $x$-value into $f$ to get the vertex's $y$-value.</p>
+        </side-note>
+        <side-note label="Range depends on direction">
+          <p>$a > 0$: range is $f(x) \ge k$. $a < 0$: range is $f(x) \le k$. State it with inequality notation.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s3">
+    <p class="section-marker">Section 3</p>
+    <h2 class="section-title">Transformations of Quadratic Functions</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>The base function is $f(x) = x^2$. Every transformation of it can be read directly from the function's form.</p>
+          <table class="cmp-table">
+            <tr><th>Transformation</th><th>Form</th><th>Effect</th></tr>
+            <tr><td>Vertical translation</td><td>$f(x) + k$</td><td>Up / down</td></tr>
+            <tr><td>Horizontal translation</td><td>$f(x - h)$</td><td>Right / left</td></tr>
+            <tr><td>Reflection in $x$-axis</td><td>$-f(x)$</td><td>Flips upside down</td></tr>
+            <tr><td>Vertical dilation</td><td>$af(x)$</td><td>Stretch / compress</td></tr>
+            <tr><td>Horizontal dilation</td><td>$f(bx)$</td><td>Compress / stretch</td></tr>
+          </table>
+        </div>
+
+        <math-box type="example" title="Combined transformation" number="2">
+          <span slot="body">
+            <p>$2(x - 3)^2 + 1$ compared to $y = x^2$:</p>
+            <ul>
+              <li>Vertical stretch by factor $2$.</li>
+              <li>Right $3$.</li>
+              <li>Up $1$.</li>
+            </ul>
+            <p>Combined form: $f(x) = a(x - h)^2 + k$.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Drag a, h, k to change the parabola — the grey y = x² reference stays put.</p>
+          <div id="b2" class="jxgbox"></div>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Order of operations">
+          <p>In $af(b(x - h)) + k$, work on the input first (horizontal shift, then dilation), then on the output (dilation, then shift).</p>
+        </side-note>
+        <side-note label="Inside vs outside">
+          <p>Changes <strong>inside</strong> the brackets act on $x$ (horizontal, reversed feel). Changes <strong>outside</strong> act on $y$ (vertical, direct).</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s3b">
+    <p class="section-marker">Section 3 <span class="ext-badge">Extended</span></p>
+    <h2 class="section-title">General Transformations of Functions</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>The same rules apply to <em>any</em> base function $y = f(x)$, not just quadratics.</p>
+          <table class="cmp-table">
+            <tr><th>Transformation</th><th>Form</th><th>Effect</th></tr>
+            <tr><td>Vertical translation</td><td>$y = f(x) + k$</td><td>Up if $k > 0$, down if $k < 0$</td></tr>
+            <tr><td>Horizontal translation</td><td>$y = f(x - h)$</td><td>Right if $h > 0$, left if $h < 0$</td></tr>
+            <tr><td>Reflection in $x$-axis</td><td>$y = -f(x)$</td><td>Flips upside down</td></tr>
+            <tr><td>Reflection in $y$-axis</td><td>$y = f(-x)$</td><td>Flips left–right</td></tr>
+            <tr><td>Vertical dilation</td><td>$y = af(x)$</td><td>Stretch if $|a| > 1$, compress if $0 < |a| < 1$</td></tr>
+            <tr><td>Horizontal dilation</td><td>$y = f(bx)$</td><td>Compress if $|b| > 1$, stretch if $0 < |b| < 1$</td></tr>
+            <tr><td>Combined</td><td>$y = af(b(x - h)) + k$</td><td>All transformations</td></tr>
+          </table>
+        </div>
+
+        <math-box type="example" title="Applying transformations to a linear function" number="3">
+          <span slot="body">
+            <p>Let $f(x) = 2x + 1$.</p>
+            <ul>
+              <li>$f(x) + 3 = 2x + 4$: up $3$.</li>
+              <li>$f(x - 2) = 2x - 3$: right $2$.</li>
+              <li>$-f(x) = -2x - 1$: reflect in the $x$-axis.</li>
+              <li>$f(-x) = -2x + 1$: reflect in the $y$-axis.</li>
+              <li>$2f(x) = 4x + 2$: vertical stretch by $2$.</li>
+              <li>$f(2x) = 4x + 1$: horizontal compression by $\frac{1}{2}$.</li>
+            </ul>
+          </span>
+        </math-box>
+      </div>
+      <div class="note-col">
+        <side-note label="Horizontal feels reversed">
+          <p>To shift right by 2 you subtract 2 inside: $f(x - 2)$. Dilation inside also inverts: $f(2x)$ compresses, not stretches.</p>
+        </side-note>
+        <side-note label="Asymptotes move too">
+          <p>For any function with an asymptote, apply the same vertical shift to the asymptote when translating.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s4">
+    <p class="section-marker">Section 4</p>
+    <h2 class="section-title">Range Given Domain, Composite &amp; Inverse Functions</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p><strong>Determining the range on a restricted domain:</strong></p>
+          <ol class="steps">
+            <li>Identify the domain.</li>
+            <li>Find the vertex.</li>
+            <li>Check if the vertex is inside the domain.</li>
+            <li>Evaluate the endpoints.</li>
+            <li>Determine the highest and lowest $y$-values.</li>
+          </ol>
+        </div>
+
+        <math-box type="example" title="Vertex inside the domain" number="4">
+          <span slot="body">
+            <p>$f(x) = (x - 2)^2 + 1$, $0 \le x \le 5$.</p>
+            <ul>
+              <li>Vertex $(2, 1)$: minimum $y = 1$.</li>
+              <li>$f(0) = 5$, $f(5) = 10$.</li>
+              <li>Range: $1 \le f(x) \le 10$.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Vertex outside the domain" number="5">
+          <span slot="body">
+            <p>$f(x) = (x - 2)^2 + 1$, $3 \le x \le 5$.</p>
+            <ul>
+              <li>Vertex at $x = 2$ is outside.</li>
+              <li>$f(3) = 2$, $f(5) = 10$.</li>
+              <li>Range: $2 \le f(x) \le 10$.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Slide the left endpoint of the domain — watch the range update.</p>
+          <div id="b3" class="jxgbox"></div>
+        </div>
+
+        <math-box type="definition" title="Composite function">
+          <span slot="body">
+            <p>$$(f \circ g)(x) = f(g(x))$$</p>
+            <p>Apply $g$ first, then feed the result into $f$. In general $f(g(x)) \ne g(f(x))$.</p>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Building and graphing composites" number="6">
+          <span slot="body">
+            <p>Let $f(x) = x^2 + 1$ and $g(x) = 2x - 3$.</p>
+            <p>$f(g(x)) = (2x - 3)^2 + 1 = 4x^2 - 12x + 10$: vertex $(1.5, 1)$, opens upward.</p>
+            <p>$g(f(x)) = 2(x^2 + 1) - 3 = 2x^2 - 1$: vertex $(0, -1)$, opens upward.</p>
+            <table class="data-table">
+              <tr><th>$x$</th><th>$g(x)$</th><th>$f(g(x))$</th><th>$g(f(x))$</th></tr>
+              <tr><td>-1</td><td>-5</td><td>26</td><td>1</td></tr>
+              <tr><td>0</td><td>-3</td><td>10</td><td>-1</td></tr>
+              <tr><td>1</td><td>-1</td><td>2</td><td>1</td></tr>
+              <tr><td>2</td><td>1</td><td>2</td><td>7</td></tr>
+              <tr><td>3</td><td>3</td><td>10</td><td>17</td></tr>
+            </table>
+            <p>To graph a composite: make a table of $x$, evaluate $g(x)$, feed it into $f$, and plot $(x, f(g(x)))$.</p>
+          </span>
+        </math-box>
+
+        <math-box type="theorem" title="Domain of a composite">
+          <span slot="body">
+            <p>For $f(g(x))$ to be valid: $x$ must be in the <strong>domain of $g$</strong>, and $g(x)$ must be in the <strong>domain of $f$</strong>.</p>
+            <p>Example: $f(x) = \sqrt{x}$, $g(x) = x - 3$ gives $f(g(x)) = \sqrt{x - 3}$, defined for $x \ge 3$; while $g(f(x)) = \sqrt{x} - 3$, defined for $x \ge 0$.</p>
+          </span>
+        </math-box>
+
+        <math-box type="definition" title="Inverse function">
+          <span slot="body">
+            <p>If $f(a) = b$, then $f^{-1}(b) = a$. Method: write $y = f(x)$, swap $x$ and $y$, solve for $y$.</p>
+            <p>Example: $f(x) = 2x + 3 \Rightarrow f^{-1}(x) = \frac{x - 3}{2}$. If $f(x) = x^2$ for $x \ge 0$, then $f^{-1}(x) = \sqrt{x}$ for $x \ge 0$.</p>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>For $f(x) = x^2 - 6x + 10$ on $1 \le x \le 6$, <ib-term>determine</ib-term> the range.</li>
+            <li>If $f(x) = 3x - 5$ and $g(x) = x + 2$, find $f(g(4))$ and $g(f(4))$.</li>
+            <li>Find $f^{-1}(x)$ for $f(x) = \frac{x + 4}{2}$.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Vertex check first">
+          <p>On a restricted domain you must check <em>both</em> endpoints and the vertex. The vertex may not be part of the domain at all.</p>
+        </side-note>
+        <side-note label="Order matters">
+          <p>$f \circ g$ means "do $g$, then $f$". Reading left to right: $(f \circ g) = f$ after $g$.</p>
+        </side-note>
+        <side-note label="Domain before solving">
+          <p>When finding an inverse, restrict the domain first if the function is not one-to-one (like $y = x^2$).</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s5">
+    <p class="section-marker">Section 5</p>
+    <h2 class="section-title">Solving Quadratic Equations &amp; the Discriminant</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>Three algebraic methods: factorising, the quadratic formula, and completing the square.</p>
+        </div>
+
+        <math-box type="example" title="Factorising" number="7">
+          <span slot="body">
+            <p>Solve $2x^2 - 4x - 6 = 0$:</p>
+            <ol class="steps">
+              <li>$x^2 - 2x - 3 = 0$ (divide by 2).</li>
+              <li>$(x - 3)(x + 1) = 0$.</li>
+              <li>$x = 3,\ -1$.</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <math-box type="theorem" title="Quadratic formula">
+          <span slot="body">
+            <p>$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$</p>
+            <p>For $2x^2 - 4x - 6 = 0$: $x = \frac{4 \pm \sqrt{16 + 48}}{4} = \frac{4 \pm 8}{4}$, so $x = 3,\ -1$.</p>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Completing the square" number="8">
+          <span slot="body">
+            <p>Solve $x^2 - 6x + 5 = 0$:</p>
+            <ol class="steps">
+              <li>$(x - 3)^2 - 4 = 0$.</li>
+              <li>$(x - 3)^2 = 4$.</li>
+              <li>$x - 3 = \pm 2$, so $x = 5,\ 1$.</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <math-box type="theorem" title="The discriminant">
+          <span slot="body">
+            <p>$$\Delta = b^2 - 4ac$$</p>
+            <table class="cmp-table">
+              <tr><th>$\Delta$</th><th>Nature of roots</th></tr>
+              <tr><td>$\Delta > 0$</td><td>Two distinct real roots</td></tr>
+              <tr><td>$\Delta = 0$</td><td>One repeated real root</td></tr>
+              <tr><td>$\Delta < 0$</td><td>No real roots</td></tr>
+            </table>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Using the discriminant" number="9">
+          <span slot="body">
+            <p>$x^2 + kx + 9 = 0$ has one repeated root. Then:</p>
+            <p>$$\Delta = k^2 - 36 = 0 \Rightarrow k = \pm 6$$</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Move a, b, c — the live Δ readout tells you whether the roots are real and distinct, equal, or none.</p>
+          <div id="b4" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Solve $3x^2 - 5x - 2 = 0$ by factorising and check with the formula.</li>
+            <li>For what values of $k$ does $x^2 + 2x + k = 0$ have no real roots?</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Which method?">
+          <p>Factorise when the factors are obvious. Formula always works. Complete the square when you also want the vertex form.</p>
+        </side-note>
+        <side-note label="Two, one, or none">
+          <p>A quadratic can have $0$, $1$, or $2$ real roots. Check the discriminant before committing to an answer count.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s6">
+    <p class="section-marker">Section 6</p>
+    <h2 class="section-title">Linear–Quadratic Systems &amp; Finding Quadratic Equations</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>A line and a parabola can meet in $0$, $1$, or $2$ points. Substitute the line into the quadratic and solve.</p>
+        </div>
+
+        <math-box type="example" title="Linear–quadratic system" number="10">
+          <span slot="body">
+            <p>Solve $y = x + 1$ and $y = x^2 - 1$.</p>
+            <ol class="steps">
+              <li>$x + 1 = x^2 - 1$.</li>
+              <li>$x^2 - x - 2 = 0$.</li>
+              <li>$(x - 2)(x + 1) = 0$, so $x = 2,\ -1$.</li>
+              <li>Intersections: $(2, 3)$ and $(-1, 0)$.</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Graph of Example 10 — y = x + 1 and y = x² − 1; the intersections are computed live.</p>
+          <div id="b5" class="jxgbox"></div>
+        </div>
+
+        <math-box type="example" title="From $x$-intercepts and a point" number="11">
+          <span slot="body">
+            <p>Through $(0, 3)$, $(1, 0)$, $(3, 0)$:</p>
+            <ol class="steps">
+              <li>$y = a(x - 1)(x - 3)$.</li>
+              <li>$3 = a(-1)(-3) = 3a$, so $a = 1$.</li>
+              <li>$$y = x^2 - 4x + 3$$</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="From vertex and a point" number="12">
+          <span slot="body">
+            <p>Vertex $(2, -1)$, through $(0, 3)$:</p>
+            <ol class="steps">
+              <li>$y = a(x - 2)^2 - 1$.</li>
+              <li>$3 = 4a - 1$, so $a = 1$.</li>
+              <li>$$y = (x - 2)^2 - 1 = x^2 - 4x + 3$$</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Find the intersection points of $y = 2x - 3$ and $y = x^2 - 4x + 1$.</li>
+            <li>A parabola has $x$-intercepts at $x = -2$ and $x = 4$ and passes through $(0, -8)$. Write its equation.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Substitute, then solve">
+          <p>Substituting the linear equation into the quadratic always produces a quadratic in $x$. Its discriminant tells you how many intersections exist.</p>
+        </side-note>
+        <side-note label="Two data points to fix $a$">
+          <p>In factored form you already know $p$ and $q$; one extra point is enough to solve for $a$. In vertex form, you know $(h, k)$ and again only need one extra point.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s7">
+    <p class="section-marker">Section 7</p>
+    <h2 class="section-title">Quadratic Modelling &amp; Optimisation</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>When a quadratic opens downward ($a < 0$), its vertex is the <strong>maximum</strong>: the classic optimising tool for height, profit, area, and revenue problems.</p>
+        </div>
+
+        <math-box type="example" title="Maximum height" number="13">
+          <span slot="body">
+            <p>$h(t) = -5t^2 + 20t + 1$.</p>
+            <ol class="steps">
+              <li>$t = -\frac{20}{2(-5)} = 2$.</li>
+              <li>$h(2) = 21$.</li>
+              <li>Maximum height $= 21$ m at $t = 2$ s.</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Maximum profit" number="14">
+          <span slot="body">
+            <p>$P(x) = -2x^2 + 80x - 300$.</p>
+            <ol class="steps">
+              <li>$x = -\frac{80}{2(-2)} = 20$.</li>
+              <li>$P(20) = 500$.</li>
+              <li>Maximum profit $= \$500$ at $x = 20$.</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Example 13: maximum height 21 m at t = 2 s — the dashed lines mark the vertex.</p>
+          <div id="b6" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Optimisation recipe</strong></p>
+          <ol class="steps">
+            <li>Define variables and build the quadratic model.</li>
+            <li>Check $a < 0$ (maximum) or $a > 0$ (minimum).</li>
+            <li>Axis: $x = -\frac{b}{2a}$.</li>
+            <li>Evaluate the function at that $x$.</li>
+            <li>Interpret the answer in the context.</li>
+          </ol>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>A rocket has height $h(t) = -5t^2 + 40t + 2$. Find the maximum height and the time it occurs.</li>
+            <li>A rectangular field is bounded by $100$ m of fencing on three sides. Write the quadratic model for the area and find the width that maximises it.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Why $-\frac{b}{2a}$?">
+          <p>The axis of symmetry is the average of the two roots, which works out to $-\frac{b}{2a}$ in every quadratic.</p>
+        </side-note>
+        <side-note label="Interpret in context">
+          <p>State that $t = 2$ s followed by "maximum height of 21 m" is a complete answer; a bare coordinate is not.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s8">
+    <p class="section-marker">Section 8</p>
+    <h2 class="section-title">Non-Linear Inequalities</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p><strong>Method for quadratic inequalities:</strong> find the critical values, build a sign table, and read off the solution interval(s).</p>
+        </div>
+
+        <math-box type="example" title="Quadratic inequality" number="15">
+          <span slot="body">
+            <p>Solve $x^2 - x - 6 > 0$.</p>
+            <ol class="steps">
+              <li>$(x - 3)(x + 2) > 0$; critical values $x = 3,\ -2$.</li>
+              <li>Sign table:</li>
+            </ol>
+            <table class="data-table">
+              <tr><th>Interval</th><th>Test $x$</th><th>Sign</th></tr>
+              <tr><td>$x < -2$</td><td>$-3$</td><td>Positive</td></tr>
+              <tr><td>$-2 < x < 3$</td><td>$0$</td><td>Negative</td></tr>
+              <tr><td>$x > 3$</td><td>$4$</td><td>Positive</td></tr>
+            </table>
+            <p>Solution: $x < -2$ or $x > 3$.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Sign of f(x) shown on the x-axis: teal where f(x) > 0, red where f(x) < 0.</p>
+          <div id="b7" class="jxgbox"></div>
+        </div>
+
+        <math-box type="example" title="Absolute value inequalities" number="16">
+          <span slot="body">
+            <p>Solve $|2x - 1| < 5$:</p>
+            <p>$$-5 < 2x - 1 < 5 \Rightarrow -2 < x < 3$$</p>
+            <p>Solve $|x + 1| \ge 3$:</p>
+            <p>$$x \le -4 \quad \text{or} \quad x \ge 2$$</p>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Cubic inequality · Extended" number="17">
+          <span slot="body">
+            <p>Solve $(x + 1)(x - 2)(x - 3) \le 0$. Critical values $x = -1,\ 2,\ 3$.</p>
+            <ul>
+              <li>$x < -1$: negative.</li>
+              <li>$-1 < x < 2$: positive.</li>
+              <li>$2 < x < 3$: negative.</li>
+              <li>$x > 3$: positive.</li>
+            </ul>
+            <p>Solution: $x \le -1$ or $2 \le x \le 3$.</p>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Rational inequality · Extended" number="18">
+          <span slot="body">
+            <p>Solve $\frac{x - 1}{x + 2} > 0$. Critical values $x = 1$ and $x = -2$; note $x = -2$ is excluded.</p>
+            <ul>
+              <li>$x < -2$: positive.</li>
+              <li>$-2 < x < 1$: negative.</li>
+              <li>$x > 1$: positive.</li>
+            </ul>
+            <p>Solution: $x < -2$ or $x > 1$.</p>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Solve $x^2 - 7x + 10 \le 0$.</li>
+            <li>Solve $|3x + 2| \ge 8$.</li>
+            <li>Solve $(x + 2)(x - 1)(x - 4) > 0$.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Never divide by an unknown">
+          <p>You cannot divide an inequality by $x$ or by a denominator that may be negative — use sign analysis instead, and always exclude values that make a denominator zero.</p>
+        </side-note>
+        <side-note label="Reverse when multiplying by $-1$">
+          <p>Multiplying or dividing both sides of an inequality by a negative reverses the sign. A classic slip that costs the whole answer.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+<style>
+  .wg { background:#fff; border:1px solid #dde3ea; border-radius:12px; padding:12px 14px 10px; margin:1.25rem 0; box-shadow:0 1px 2px rgba(16,24,40,.05); }
+  .wg .wg-cap { font-family:"DM Sans",sans-serif; font-size:.8rem; color:#5c6774; margin:0 0 .5rem; line-height:1.5; }
+  .wg .jxgbox { width:100%; height:auto; max-height:560px; border-radius:8px; background:#fff; }
+  .wg .jxgbox#b1 { aspect-ratio:2/3; }
+  .wg .jxgbox#b2 { aspect-ratio:18/23; }
+  .wg .jxgbox#b3 { aspect-ratio:10/17; }
+  .wg .jxgbox#b4 { aspect-ratio:3/4; }
+  .wg .jxgbox#b5 { aspect-ratio:3/4; }
+  .wg .jxgbox#b6 { aspect-ratio:9/40; }
+  .wg .jxgbox#b7 { aspect-ratio:3/5; }
+</style>
+
+<script>
+(function () {
+  /* b1 */
+  const b1 = JXG.JSXGraph.initBoard('b1', { keepAspectRatio: true,
+    boundingbox: [-2, 9, 6, -3],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  b1.create('functiongraph', [x => x * x - 4 * x + 3], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true,
+    name: 'f(x) = x² − 4x + 3', withLabel: true,
+    label: { position: 'rt', offset: [0, 12] }
+  });
+  b1.create('line', [[2, -3], [2, 9]],
+    { strokeColor: '#d9480f', dash: 3, strokeWidth: 1.5 });
+  b1.create('point', [2, -1], {
+    name: '(2, −1)', color: '#d9480f', fixed: true, size: 4,
+    label: { offset: [12, -12] }
+  });
+  b1.create('point', [1, 0], {
+    name: '(1, 0)', color: '#0b7285', fixed: true, size: 4,
+    label: { offset: [-36, 14] }
+  });
+  b1.create('point', [3, 0], {
+    name: '(3, 0)', color: '#0b7285', fixed: true, size: 4,
+    label: { offset: [8, 14] }
+  });
+  b1.create('point', [0, 3], {
+    name: '(0, 3)', color: '#7048e8', fixed: true, size: 4,
+    label: { offset: [-42, 6] }
+  });
+})();
+
+(function () {
+  /* b2 */
+  const b2 = JXG.JSXGraph.initBoard('b2', { keepAspectRatio: true,
+    boundingbox: [-9, 12, 9, -11],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  b2.create('functiongraph', [x => x * x], {
+    strokeColor: '#c6d2de', dash: 3, strokeWidth: 2, fixed: true,
+    name: 'y = x²', withLabel: true, label: { position: 'rt', offset: [0, 10] }
+  });
+  const a2 = b2.create('slider', [[-8, -6.5], [-3, -6.5], [-3, 1, 3]],
+    { name: 'a', snapWidth: 0.1 });
+  const h2 = b2.create('slider', [[-8, -8.0], [-3, -8.0], [-6, 3, 6]],
+    { name: 'h', snapWidth: 0.5 });
+  const k2 = b2.create('slider', [[-8, -9.5], [-3, -9.5], [-6, 1, 6]],
+    { name: 'k', snapWidth: 0.5 });
+  b2.create('functiongraph',
+    [x => a2.Value() * (x - h2.Value()) * (x - h2.Value()) + k2.Value()],
+    { strokeColor: '#2563eb', strokeWidth: 3, fixed: true });
+  b2.create('point', [() => h2.Value(), () => k2.Value()], {
+    name: 'vertex', color: '#d9480f', fixed: true, size: 4,
+    label: { offset: [10, 8] }
+  });
+})();
+
+(function () {
+  /* b3 */
+  const f3 = x => (x - 2) * (x - 2) + 1;
+  const HI3 = 5, N3 = 240;
+  const b3 = JXG.JSXGraph.initBoard('b3', { keepAspectRatio: true,
+    boundingbox: [-2, 15, 8, -2],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  b3.create('functiongraph', [f3], {
+    strokeColor: '#c6d2de', dash: 3, strokeWidth: 2, fixed: true
+  });
+  b3.create('point', [2, 1], {
+    name: 'vertex (2, 1)', color: '#5c6774', fixed: true, size: 3,
+    label: { offset: [8, -14] }
+  });
+  const lo3 = b3.create('slider', [[-1, -0.8], [3, -0.8], [0, 0, 5]],
+    { name: 'left end', snapWidth: 0.1 });
+  function data3() {
+    const L = lo3.Value(), X = [], Y = [];
+    for (let i = 0; i <= N3; i++) {
+      const x = L + (HI3 - L) * i / N3;
+      X.push(x); Y.push(f3(x));
+    }
+    return [X, Y];
+  }
+  const d3 = data3();
+  const piece3 = b3.create('curve', [d3[0], d3[1]], {
+    strokeColor: '#2563eb', strokeWidth: 4, fixed: true
+  });
+  b3.create('point', [() => lo3.Value(), () => f3(lo3.Value())],
+    { color: '#2563eb', fixed: true, size: 3 });
+  b3.create('point', [HI3, () => f3(HI3)],
+    { color: '#2563eb', fixed: true, size: 3 });
+  b3.create('text', [-1.8, 13.6, function () {
+    const L = lo3.Value();
+    const yL = f3(L), yR = f3(HI3);
+    const minY = (L <= 2) ? 1 : Math.min(yL, yR);
+    const maxY = Math.max(yL, yR);
+    return 'domain ' + L.toFixed(1) + ' ≤ x ≤ 5  →  range ' +
+      minY.toFixed(1) + ' ≤ f(x) ≤ ' + maxY.toFixed(1);
+  }], { fontSize: 14, anchorX: 'left' });
+  lo3.on('drag', function () {
+    const nd = data3();
+    piece3.dataX = nd[0];
+    piece3.dataY = nd[1];
+    b3.update();
+  });
+})();
+
+(function () {
+  /* b4 */
+  const b4 = JXG.JSXGraph.initBoard('b4', { keepAspectRatio: true,
+    boundingbox: [-9, 12, 9, -12],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  const a4 = b4.create('slider', [[-8, -8.5], [-3, -8.5], [-2, 1, 2]],
+    { name: 'a', snapWidth: 0.1 });
+  const bb4 = b4.create('slider', [[-8, -10],  [-3, -10],  [-8, -4, 8]],
+    { name: 'b', snapWidth: 0.5 });
+  const c4 = b4.create('slider', [[-8, -11.5], [-3, -11.5], [-8, 3, 8]],
+    { name: 'c', snapWidth: 0.5 });
+  const g4 = b4.create('functiongraph',
+    [x => a4.Value() * x * x + bb4.Value() * x + c4.Value()],
+    { strokeColor: '#2563eb', strokeWidth: 3, fixed: true });
+  const xaxis4 = b4.create('line', [[0, 0], [1, 0]], { visible: false });
+  b4.create('intersection', [g4, xaxis4, 0], {
+    color: '#0b7285', fixed: true, size: 5, label: { offset: [0, 18] }
+  });
+  b4.create('intersection', [g4, xaxis4, 1], {
+    color: '#0b7285', fixed: true, size: 5, label: { offset: [0, 18] }
+  });
+  b4.create('text', [0.6, 10.4, function () {
+    const A = a4.Value(), B = bb4.Value(), C = c4.Value();
+    const D = B * B - 4 * A * C;
+    let msg = 'two distinct real roots';
+    if (D < -0.001) msg = 'no real roots';
+    else if (D <= 0.001) msg = 'one repeated real root';
+    return 'Δ = b² − 4ac = ' + (Math.round(D * 100) / 100).toFixed(2) + '  →  ' + msg;
+  }], { fontSize: 14, anchorX: 'left' });
+})();
+
+(function () {
+  /* b5 */
+  const b5 = JXG.JSXGraph.initBoard('b5', { keepAspectRatio: true,
+    boundingbox: [-4, 8, 5, -4],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  const par5 = b5.create('functiongraph', [x => x * x - 1], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true,
+    name: 'y = x² − 1', withLabel: true, label: { position: 'rt' }
+  });
+  const lin5 = b5.create('line', [[0, 1], [1, 2]], {
+    strokeColor: '#d9480f', strokeWidth: 2.5,
+    name: 'y = x + 1', withLabel: true, label: { position: 'lft' }
+  });
+  b5.create('intersection', [par5, lin5, 0], {
+    color: '#0b7285', fixed: true, size: 5, label: { offset: [0, 18] }
+  });
+  b5.create('intersection', [par5, lin5, 1], {
+    color: '#0b7285', fixed: true, size: 5, label: { offset: [0, 18] }
+  });
+})();
+
+(function () {
+  /* b6 */
+  const h6 = t => -5 * t * t + 20 * t + 1;
+  const b6 = JXG.JSXGraph.initBoard('b6', { keepAspectRatio: true,
+    boundingbox: [-1.2, 26, 6, -6],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  b6.create('functiongraph', [h6, 0, 4.2], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true
+  });
+  b6.create('segment', [[2, 0], [2, 21]],
+    { strokeColor: '#d9480f', dash: 2, strokeWidth: 1.5 });
+  b6.create('segment', [[0, 21], [2, 21]],
+    { strokeColor: '#d9480f', dash: 2, strokeWidth: 1.5 });
+  b6.create('point', [2, 21], {
+    name: 'max (2, 21)', color: '#d9480f', fixed: true, size: 5,
+    label: { offset: [10, 10] }
+  });
+  b6.create('point', [2, 0], {
+    name: '2', color: '#d9480f', fixed: true, size: 3,
+    label: { offset: [0, -16] }
+  });
+  b6.create('point', [0, 21], {
+    name: '21', color: '#d9480f', fixed: true, size: 3,
+    label: { offset: [-30, 0] }
+  });
+})();
+
+(function () {
+  /* b7 */
+  const f7 = x => x * x - x - 6;
+  const b7 = JXG.JSXGraph.initBoard('b7', { keepAspectRatio: true,
+    boundingbox: [-6, 10, 6, -10],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  b7.create('functiongraph', [f7], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true
+  });
+  b7.create('point', [-2, 0], {
+    name: '−2', color: '#0b7285', fixed: true, size: 5,
+    label: { offset: [-8, 16] }
+  });
+  b7.create('point', [3, 0], {
+    name: '3', color: '#0b7285', fixed: true, size: 5,
+    label: { offset: [8, 16] }
+  });
+  b7.create('segment', [[-6, 0], [-2, 0]],
+    { strokeColor: '#0b7285', strokeWidth: 9, lineCap: 'round' });
+  b7.create('segment', [[3, 0], [6, 0]],
+    { strokeColor: '#0b7285', strokeWidth: 9, lineCap: 'round' });
+  b7.create('segment', [[-2, 0], [3, 0]],
+    { strokeColor: '#e03131', strokeWidth: 9, lineCap: 'round' });
+})();
+</script>
+
+</body>
+</html>

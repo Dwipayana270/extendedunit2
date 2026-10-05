@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Functions · MYP Year 5 · Unit 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea']},startup:{typeset:false}};</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script src="../components/components.js" defer></script>
+</head>
+<body>
+
+<unit-header unit="Unit 2" part="Part 1" title="Linear Functions"
+  soi="Linear relationships have a constant rate of change. Systems of linear equations can be solved graphically or algebraically, and modelled in real contexts.">
+  <nav-item>1 · Simultaneous Equations Graphically</nav-item>
+  <nav-item>2 · Simultaneous Equations Algebraically</nav-item>
+  <nav-item>3 · Modelling Real-Life Situations</nav-item>
+</unit-header>
+
+<main class="page">
+
+  <div id="s1">
+    <p class="section-marker">Section 1</p>
+    <h2 class="section-title">Solving Simultaneous Linear Equations Graphically</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>Two linear equations plotted on the same axes: the <strong>point of intersection</strong> is the solution.</p>
+          <ol class="steps">
+            <li>Rearrange each equation into $y = mx + c$.</li>
+            <li>Plot both lines accurately.</li>
+            <li>Read the intersection point.</li>
+            <li>Verify by substitution.</li>
+          </ol>
+        </div>
+
+        <math-box type="theorem" title="Types of solutions">
+          <span slot="body">
+            <table class="cmp-table">
+              <tr><th>Situation</th><th>What you see</th><th>Number of solutions</th></tr>
+              <tr><td>Lines cross once</td><td>One intersection</td><td>One unique solution</td></tr>
+              <tr><td>Lines are parallel</td><td>Never meet</td><td>No solution</td></tr>
+              <tr><td>Lines are identical</td><td>Overlap completely</td><td>Infinite solutions</td></tr>
+            </table>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Fix y = 2x + 1 and drag m₂, c₂ — the lines cross once, run parallel, or become identical.</p>
+          <div id="b2" class="jxgbox"></div>
+        </div>
+
+        <math-box type="example" title="Reading the intersection point" number="1">
+          <span slot="body">
+            <p>$$y = 2x + 1 \qquad y = -x + 4$$</p>
+            <table class="data-table">
+              <tr><th>$x$</th><th>$y = 2x + 1$</th><th>$y = -x + 4$</th></tr>
+              <tr><td>0</td><td>1</td><td>4</td></tr>
+              <tr><td>1</td><td>3</td><td>3</td></tr>
+              <tr><td>2</td><td>5</td><td>2</td></tr>
+            </table>
+            <p><strong>Solution:</strong> $(1, 3)$</p>
+            <p><strong>Check:</strong> $2(1) + 1 = 3$ ✓ and $-1 + 4 = 3$ ✓</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Graph of Example 1 — y = 2x + 1 and y = −x + 4 meet at (1, 3); dashed guides read the coordinates.</p>
+          <div id="b1" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Solve $y = 3x - 2$ and $y = -x + 6$ graphically. Verify your intersection by substitution.</li>
+            <li>For the system $y = 2x + 1$ and $y = 2x - 3$, <ib-term>describe</ib-term> what you see and how many solutions exist.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Verification is non-negotiable">
+          <p>Always substitute the intersection point back into both original equations. A graph is only as reliable as its axes and its reading.</p>
+        </side-note>
+        <side-note label="Parallel or identical?">
+          <p>Compare gradients: same gradient + different intercepts = parallel (no solution); same gradient + same intercept = identical (infinite solutions).</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s2">
+    <p class="section-marker">Section 2</p>
+    <h2 class="section-title">Solving Simultaneous Linear Equations Algebraically</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>Algebra gives a precise solution without drawing a graph. Two standard methods: <strong>substitution</strong> and <strong>elimination</strong>.</p>
+        </div>
+
+        <math-box type="example" title="Substitution method" number="2">
+          <span slot="body">
+            <p>Solve: $2x + 3y = 12$ and $x - y = 1$.</p>
+            <ol class="steps">
+              <li>From $x - y = 1$: $x = y + 1$.</li>
+              <li>Substitute: $2(y + 1) + 3y = 12$.</li>
+              <li>$2y + 2 + 3y = 12 \Rightarrow 5y = 10 \Rightarrow y = 2$.</li>
+              <li>Then $x = 3$.</li>
+            </ol>
+            <p><strong>Solution:</strong> $(3, 2)$</p>
+          </span>
+        </math-box>
+
+        <math-box type="example" title="Elimination method" number="3">
+          <span slot="body">
+            <p>Solve: $2x + 3y = 12$ and $x - y = 1$.</p>
+            <ol class="steps">
+              <li>Multiply $x - y = 1$ by $3$: $3x - 3y = 3$.</li>
+              <li>Add to $2x + 3y = 12$: $5x = 15 \Rightarrow x = 3$.</li>
+              <li>Then $y = 2$.</li>
+            </ol>
+            <p><strong>Solution:</strong> $(3, 2)$ — the two methods agree.</p>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">The same system by both methods — 2x + 3y = 12 and x − y = 1 meet at (3, 2).</p>
+          <div id="b3" class="jxgbox"></div>
+        </div>
+
+        <math-box type="theorem" title="Key rule">
+          <span slot="body">
+            <ul>
+              <li>Same gradient, different intercepts → <strong>no solution</strong>.</li>
+              <li>Same gradient, same intercept → <strong>infinite solutions</strong>.</li>
+              <li>Otherwise → <strong>one unique solution</strong>.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>Solve $3x + y = 7$ and $2x - y = 8$ using elimination.</li>
+            <li>Solve $y = 4x - 1$ and $2x + 3y = 22$ using substitution.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Choose the method">
+          <p>Use <strong>substitution</strong> when one variable already has coefficient 1. Use <strong>elimination</strong> when coefficients line up nicely for adding or subtracting.</p>
+        </side-note>
+        <side-note label="Look first">
+          <p>Check gradients before doing any working: if they match, you already know the type of answer.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+  <div id="s3">
+    <p class="section-marker">Section 3</p>
+    <h2 class="section-title">Modelling Real-Life Situations Using Linear Functions</h2>
+    <div class="text-with-notes">
+      <div class="text-col">
+        <div class="prose">
+          <p>A linear model is written as $y = mx + c$. Each symbol carries real-world meaning:</p>
+          <table class="cmp-table">
+            <tr><th>Symbol</th><th>Meaning</th><th>Example</th></tr>
+            <tr><td>$m$</td><td>Rate of change</td><td>Cost per item, speed</td></tr>
+            <tr><td>$c$</td><td>Initial value</td><td>Fixed fee, starting amount</td></tr>
+            <tr><td>$x$</td><td>Independent variable</td><td>Number of items, time</td></tr>
+            <tr><td>$y$</td><td>Dependent variable</td><td>Total cost, distance</td></tr>
+          </table>
+        </div>
+
+        <math-box type="example" title="Taxi fare" number="4">
+          <span slot="body">
+            <p>A taxi charges \$5 fixed plus \$2 per km: $C(d) = 2d + 5$.</p>
+            <ul>
+              <li>$m = 2$: \$2 per km.</li>
+              <li>$c = 5$: \$5 fixed fee.</li>
+              <li>For 10 km: $C(10) = 2(10) + 5 = \$25$.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Taxi fare model — change the rate, the fixed fee and the distance; the readout computes the cost.</p>
+          <div id="b4" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Common linear models</strong></p>
+          <table class="cmp-table">
+            <tr><th>Context</th><th>Model</th></tr>
+            <tr><td>Distance–time</td><td>$d = vt + d_0$</td></tr>
+            <tr><td>Cost–quantity</td><td>$C = pq + f$</td></tr>
+            <tr><td>Temperature</td><td>$F = \frac{9}{5}C + 32$</td></tr>
+            <tr><td>Depreciation</td><td>$V = V_0 - rt$</td></tr>
+          </table>
+        </div>
+
+        <math-box type="example" title="Equation from two points" number="5">
+          <span slot="body">
+            <p>Through $(2, 5)$ and $(6, 13)$:</p>
+            <ol class="steps">
+              <li>$m = \frac{13 - 5}{6 - 2} = 2$.</li>
+              <li>$5 = 2(2) + c \Rightarrow c = 1$.</li>
+              <li>$$y = 2x + 1$$</li>
+            </ol>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Drag points A and B — the line, gradient and intercept update live.</p>
+          <div id="b5" class="jxgbox"></div>
+        </div>
+
+        <math-box type="theorem" title="Parallel and perpendicular lines">
+          <span slot="body">
+            <ul>
+              <li><strong>Parallel:</strong> $m_1 = m_2$.</li>
+              <li><strong>Perpendicular:</strong> $m_1 m_2 = -1$.</li>
+            </ul>
+          </span>
+        </math-box>
+
+        <div class="wg">
+          <p class="wg-cap">Grey line is parallel (same m each time); the orange line is perpendicular, with m₁ × m₂ = −1.</p>
+          <div id="b6" class="jxgbox"></div>
+        </div>
+
+        <div class="prose gap-sm">
+          <p><strong>Guided practice</strong></p>
+          <ol>
+            <li>A plumber charges \$60 callout plus \$45 per hour. Write the cost model and find the cost of a 3-hour job.</li>
+            <li>Line $L_1$ has gradient $-3$. <ib-term>find</ib-term> the gradient of a line perpendicular to $L_1$.</li>
+            <li>Write the equation of the line through $(0, 4)$ and $(5, 14)$.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="note-col">
+        <side-note label="Rate vs initial">
+          <p>The rate $m$ is multiplied by the variable; the initial value $c$ is added ($+$) or subtracted ($-$) as a fixed amount.</p>
+        </side-note>
+        <side-note label="Perpendicular check">
+          <p>For perpendicular lines, multiply the two gradients: you should always get $-1$. A vertical line has no gradient, so it has no perpendicular partner of this form.</p>
+        </side-note>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<style>
+  .wg { background:#fff; border:1px solid #dde3ea; border-radius:12px; padding:12px 14px 10px; margin:1.25rem 0; box-shadow:0 1px 2px rgba(16,24,40,.05); }
+  .wg .wg-cap { font-family:"DM Sans",sans-serif; font-size:.8rem; color:#5c6774; margin:0 0 .5rem; line-height:1.5; }
+  .wg .jxgbox { width:100%; height:auto; max-height:560px; border-radius:8px; background:#fff; }
+  .wg .jxgbox#b1 { aspect-ratio:9/11; }
+  .wg .jxgbox#b2 { aspect-ratio:14/25; }
+  .wg .jxgbox#b3 { aspect-ratio:9/10; }
+  .wg .jxgbox#b4 { aspect-ratio:29/110; }
+  .wg .jxgbox#b5 { aspect-ratio:16/25; }
+  .wg .jxgbox#b6 { aspect-ratio:8/9; }
+</style>
+
+<script>
+(function () {
+  /* b1 */
+  const b1 = JXG.JSXGraph.initBoard('b1', { keepAspectRatio: true,
+    boundingbox: [-3, 8, 6, -3],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  const l11 = b1.create('functiongraph', [x => 2 * x + 1], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true,
+    name: 'y = 2x + 1', withLabel: true,
+    label: { position: 'rt', offset: [-10, 10] }
+  });
+  const l12 = b1.create('functiongraph', [x => -x + 4], {
+    strokeColor: '#d9480f', strokeWidth: 3, fixed: true,
+    name: 'y = −x + 4', withLabel: true,
+    label: { position: 'rt', offset: [-10, 10] }
+  });
+  b1.create('segment', [[1, 0], [1, 3]], {
+    strokeColor: '#0b7285', dash: 2, strokeWidth: 1.5
+  });
+  b1.create('segment', [[0, 3], [1, 3]], {
+    strokeColor: '#0b7285', dash: 2, strokeWidth: 1.5
+  });
+  b1.create('intersection', [l11, l12, 0], {
+    name: '(1, 3)', color: '#0b7285', fixed: true, size: 6,
+    label: { offset: [12, 12], fontSize: 14 }
+  });
+  b1.create('text', [-2.7, -2, 'Check:  2(1) + 1 = 3  ✓      −1 + 4 = 3  ✓'], {
+    fontSize: 13, anchorX: 'left', color: '#0b7285'
+  });
+})();
+
+(function () {
+  /* b2 */
+  const b2 = JXG.JSXGraph.initBoard('b2', { keepAspectRatio: true,
+    boundingbox: [-6, 12, 8, -13],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  b2.create('functiongraph', [x => 2 * x + 1], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true,
+    name: 'y = 2x + 1', withLabel: true,
+    label: { position: 'rt', offset: [-10, 10] }
+  });
+  const m2 = b2.create('slider', [[-5, -8], [-1, -8], [0, 2, 5]],
+    { name: 'm₂', snapWidth: 0.25 });
+  const c2 = b2.create('slider', [[-5, -10.5], [-1, -10.5], [-6, 1, 6]],
+    { name: 'c₂', snapWidth: 0.5 });
+  b2.create('functiongraph', [x => m2.Value() * x + c2.Value()], {
+    strokeColor: '#d9480f', strokeWidth: 3, fixed: true
+  });
+  b2.create('text', [-5.5, 11, function () {
+    const M = m2.Value(), C = c2.Value();
+    const sameM = Math.abs(M - 2) < 0.001;
+    const sameC = Math.abs(C - 1) < 0.001;
+    if (sameM && sameC) return 'IDENTICAL LINES  →  infinitely many solutions';
+    if (sameM) return 'PARALLEL LINES  →  no solution';
+    return 'LINES CROSS ONCE  →  one unique solution';
+  }], { fontSize: 15, anchorX: 'left', color: '#0b7285' });
+})();
+
+(function () {
+  /* b3 */
+  const b3 = JXG.JSXGraph.initBoard('b3', { keepAspectRatio: true,
+    boundingbox: [-2, 7, 7, -3],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  const l31 = b3.create('functiongraph', [x => (12 - 2 * x) / 3], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true,
+    name: '2x + 3y = 12', withLabel: true,
+    label: { position: 'rt', offset: [-10, 10] }
+  });
+  const l32 = b3.create('functiongraph', [x => x - 1], {
+    strokeColor: '#d9480f', strokeWidth: 3, fixed: true,
+    name: 'x − y = 1', withLabel: true,
+    label: { position: 'rt', offset: [-10, 10] }
+  });
+  b3.create('segment', [[3, 0], [3, 2]], {
+    strokeColor: '#0b7285', dash: 2, strokeWidth: 1.5
+  });
+  b3.create('segment', [[0, 2], [3, 2]], {
+    strokeColor: '#0b7285', dash: 2, strokeWidth: 1.5
+  });
+  b3.create('intersection', [l31, l32, 0], {
+    name: '(3, 2)', color: '#0b7285', fixed: true, size: 6,
+    label: { offset: [12, 12], fontSize: 14 }
+  });
+  b3.create('text', [-1.6, -2, 'Substitution and elimination both give x = 3, y = 2'], {
+    fontSize: 13, anchorX: 'left', color: '#0b7285'
+  });
+})();
+
+(function () {
+  /* b4 */
+  const b4 = JXG.JSXGraph.initBoard('b4', { keepAspectRatio: true,
+    boundingbox: [-3, 80, 26, -30],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  const p4 = b4.create('slider', [[1, -22], [9, -22], [0, 2, 8]],
+    { name: 'rate $/km', snapWidth: 0.5 });
+  const f4 = b4.create('slider', [[1, -27], [9, -27], [0, 5, 20]],
+    { name: 'fixed fee $', snapWidth: 1 });
+  b4.create('functiongraph', [d => p4.Value() * d + f4.Value(), 0, 22], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true
+  });
+  const d4 = b4.create('slider', [[1, -17], [9, -17], [0, 10, 22]],
+    { name: 'd (km)', snapWidth: 0.5 });
+  b4.create('point', [() => d4.Value(), () => p4.Value() * d4.Value() + f4.Value()], {
+    name: '', color: '#d9480f', fixed: true, size: 5
+  });
+  b4.create('segment', [[() => d4.Value(), 0],
+                        [() => d4.Value(), () => p4.Value() * d4.Value() + f4.Value()]],
+    { strokeColor: '#d9480f', dash: 2, strokeWidth: 1.5 });
+  b4.create('segment', [[0, () => p4.Value() * d4.Value() + f4.Value()],
+                        [() => d4.Value(), () => p4.Value() * d4.Value() + f4.Value()]],
+    { strokeColor: '#d9480f', dash: 2, strokeWidth: 1.5 });
+  b4.create('text', [-2.6, 72, function () {
+    const D = d4.Value(), R = p4.Value(), F = f4.Value();
+    const cost = R * D + F;
+    return 'C(' + D.toFixed(1) + ') = ' + R.toFixed(1) + ' × ' + D.toFixed(1) +
+           ' + ' + F.toFixed(0) + ' = $' + cost.toFixed(2);
+  }], { fontSize: 15, anchorX: 'left', color: '#2563eb' });
+})();
+
+(function () {
+  /* b5 */
+  const b5 = JXG.JSXGraph.initBoard('b5', { keepAspectRatio: true,
+    boundingbox: [-3, 20, 13, -5],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  const A = b5.create('point', [2, 5], {
+    name: 'A', color: '#0b7285', size: 6,
+    label: { offset: [-18, 10], fontSize: 14 }
+  });
+  const B = b5.create('point', [6, 13], {
+    name: 'B', color: '#0b7285', size: 6,
+    label: { offset: [10, 10], fontSize: 14 }
+  });
+  b5.create('line', [A, B], {
+    strokeColor: '#2563eb', strokeWidth: 3,
+    straightFirst: true, straightLast: true
+  });
+  b5.create('text', [-2.6, 18.5, function () {
+    const dx = B.X() - A.X();
+    if (Math.abs(dx) < 1e-6) return 'vertical line — gradient undefined';
+    const m = (B.Y() - A.Y()) / dx;
+    const c = A.Y() - m * A.X();
+    const mR = Math.round(m * 100) / 100;
+    const cR = Math.round(c * 100) / 100;
+    const sign = cR < 0 ? ' − ' : ' + ';
+    return 'y = ' + mR + 'x' + sign + Math.abs(cR);
+  }], { fontSize: 15, anchorX: 'left', color: '#2563eb' });
+  b5.create('text', [-2.6, -3.6,
+    'm = (y₂ − y₁) / (x₂ − x₁)     then substitute one point to find c'], {
+    fontSize: 12, anchorX: 'left', color: '#5c6774'
+  });
+})();
+
+(function () {
+  /* b6 */
+  const b6 = JXG.JSXGraph.initBoard('b6', { keepAspectRatio: true,
+    boundingbox: [-8, 9, 8, -9],
+    axis: true, grid: true,
+    showCopyright: false, showNavigation: false
+  });
+  const m1 = b6.create('slider', [[-7, -7], [-3, -7], [-4, 1, 4]],
+    { name: 'm₁', snapWidth: 0.25 });
+  b6.create('functiongraph', [x => m1.Value() * x], {
+    strokeColor: '#2563eb', strokeWidth: 3, fixed: true,
+    name: 'y = m₁x', withLabel: true,
+    label: { position: 'rt', offset: [-10, 10] }
+  });
+  b6.create('functiongraph', [x => m1.Value() * x + 3], {
+    strokeColor: '#adb5bd', strokeWidth: 2.5, dash: 3, fixed: true,
+    name: 'parallel (same m)', withLabel: true,
+    label: { position: 'rt', offset: [-10, 10] }
+  });
+  b6.create('line', [[0, 0], [() => -m1.Value(), 1]], {
+    strokeColor: '#d9480f', strokeWidth: 3,
+    name: 'perpendicular', withLabel: true,
+    label: { position: 'rt', offset: [-10, 10] }
+  });
+  b6.create('text', [-7.5, 8, function () {
+    const m = m1.Value();
+    if (Math.abs(m) < 0.001) {
+      return 'm₁ = 0  →  perpendicular is the vertical line x = 0 (gradient undefined)';
+    }
+    const m2v = -1 / m;
+    return 'm₁ = ' + m.toFixed(2) +
+           '     m₂ = ' + m2v.toFixed(2) +
+           '     m₁ × m₂ = ' + (m * m2v).toFixed(2);
+  }], { fontSize: 14, anchorX: 'left', color: '#d9480f' });
+})();
+</script>
+
+</body>
+</html>
